@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Bootstrap 4 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style5.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+
+  .card{
+    margin: 20px 20px;
+    width: 250px;
+  }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="de_leon.png" width="40" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      de Leon
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorias
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Almacen</a>
+              <a class="dropdown-item" href="#">Bebidas</a>
+              <a class="dropdown-item" href="#">Frutas</a>
+            </div>
+          </li>
+        </ul>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Salir</a>
+          </li>  
+          <li class="nav-item dropdown cart">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              Carrito
+              <span class="badge badge-pill badge-danger">3</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right cart-menu">
+              <div class="row total-header-section carrito">
+                  <div class="col-lg-6 col-sm-6 col-6">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">3</span>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
+                    <p>Total: <span class="text-info">$2,978.24</span></p>
+                  </div>
+              </div>
+              <div class="row cart-detail">
+                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/811OyrCd5hL._SX425_.jpg">
+                </div>
+                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                  <p>Sony DSC-RX100M..</p>
+                  <span class="price text-info"> $250.22</span> <span class="count"> Quantity:01</span>
+                </div>
+              </div>
+              <div class="row cart-detail">
+                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                  <img src="https://cdn2.gsmarena.com/vv/pics/blu/blu-vivo-48-1.jpg">
+                </div>
+                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                  <p>Vivo DSC-RX100M..</p>
+                  <span class="price text-info"> $500.40</span> <span class="count"> Quantity:01</span>
+                </div>
+              </div>
+              <div class="row cart-detail">
+                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                  <img src="https://static.toiimg.com/thumb/msid-55980052,width-640,resizemode-4/55980052.jpg">
+                </div>
+                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                  <p>Lenovo DSC-RX100M..</p>
+                  <span class="price text-info"> $445.78</span> <span class="count"> Quantity:01</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                  <button class="btn btn-primary btn-block">Comprar</button>
+                </div>
+              </div>
+            </div>
+        </li>      
+      </ul>
+    </div>
+</nav>
+
+<div class="no-gutters" style="display: flex; justify-content: flex-start; width: 100%; flex-wrap: wrap; margin: 2% 0;">   
+  
+  <div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title">Nombre Producto</h5>
+        <h6 class="card-text"> $ 000,00 </h6>
+        <p class="card-text">
+          <small class="text-muted">
+            ID: 
+            <span class="productID">
+              000000
+            </span>
+          </small></p>
+        <button type="button" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>  
+
+  <div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title">Nombre Producto</h5>
+        <h6 class="card-text"> $ 000,00 </h6>
+        <p class="card-text">
+          <small class="text-muted">
+            ID: 
+            <span class="productID">
+              000000
+            </span>
+          </small></p>
+        <button type="button" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>  
+
+  <div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title">Nombre Producto</h5>
+        <h6 class="card-text"> $ 000,00 </h6>
+        <p class="card-text">
+          <small class="text-muted">
+            ID: 
+            <span class="productID">
+              000000
+            </span>
+          </small></p>
+        <button type="button" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>  
+
+  <div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title">Nombre Producto</h5>
+        <h6 class="card-text"> $ 000,00 </h6>
+        <p class="card-text">
+          <small class="text-muted">
+            ID: 
+            <span class="productID">
+              000000
+            </span>
+          </small></p>
+        <button type="button" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>  
+
+  <div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title">Nombre Producto</h5>
+        <h6 class="card-text"> $ 000,00 </h6>
+        <p class="card-text">
+          <small class="text-muted">
+            ID: 
+            <span class="productID">
+              000000
+            </span>
+          </small></p>
+        <button type="button" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>  
+
+  <div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title">Nombre Producto</h5>
+        <h6 class="card-text"> $ 000,00 </h6>
+        <p class="card-text">
+          <small class="text-muted">
+            ID: 
+            <span class="productID">
+              000000
+            </span>
+          </small></p>
+        <button type="button" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>  
+
+  <div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title">Nombre Producto</h5>
+        <h6 class="card-text"> $ 000,00 </h6>
+        <p class="card-text">
+          <small class="text-muted">
+            ID: 
+            <span class="productID">
+              000000
+            </span>
+          </small></p>
+        <button type="button" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>  
+
+  
+    
+</div>
+
+        
+
+
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Grupo 2 - AyDS II & POO 2020 - Ecommerce Covid Edition</p>
+</div>
+
+</body>
+</html>
