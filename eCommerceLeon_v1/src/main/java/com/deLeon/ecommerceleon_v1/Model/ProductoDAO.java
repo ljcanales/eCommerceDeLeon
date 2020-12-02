@@ -5,10 +5,24 @@
  */
 package com.deLeon.ecommerceleon_v1.Model;
 
+import java.util.List;
+import org.sql2o.Connection;
+import util.Sql2oConnection;
+
 /**
  *
  * @author Luciano
  */
 public class ProductoDAO {
-    
+    public List<Producto> getAllProductos(){
+        String queryStatement = "SELECT * FROM PRODUCTO;";
+        List<Producto> res = null;
+        
+        try (Connection con = Sql2oConnection.getSql2o().open()) {
+            res = con.createQuery(queryStatement).executeAndFetch(Producto.class);
+        } catch(Exception e){
+            System.out.println("Error en ProductoDAO-getAllProductos");
+        }
+        return res;
+    }
 }
