@@ -5,6 +5,9 @@
  */
 package com.deLeon.ecommerceleon_v1.Controller;
 
+import com.deLeon.ecommerceleon_v1.Model.Producto;
+import com.deLeon.ecommerceleon_v1.Model.ProductoDAO;
+import java.util.List;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -15,10 +18,15 @@ import spark.Route;
  */
 public class ProductoController {
     public static Route getProductos = (Request request, Response response) -> {
-        return null;
+        ProductoDAO pDAO = new ProductoDAO();
+        List<Producto> res = pDAO.getAllProductos();
+        
+        return res;
     };
     
     public static Route checkId = (Request request, Response response) -> {
-        return null;
+        Integer id = Integer.valueOf(request.queryParams("id"));
+        ProductoDAO pDAO = new ProductoDAO();
+        return pDAO.existsId(id);
     };
 }
