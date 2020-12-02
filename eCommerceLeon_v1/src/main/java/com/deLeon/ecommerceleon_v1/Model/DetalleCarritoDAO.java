@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 package com.deLeon.ecommerceleon_v1.Model;
-import lombok.Data;
+import com.deLeon.ecommerceleon_v1.Model.*;
+import java.util.HashMap;
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+import spark.template.velocity.VelocityTemplateEngine;
 /**
  *
  * @author Luciano
  */
-@Data
 public class DetalleCarritoDAO {
-    private int id_carrito;
-    private int id_producto;
-    private int cant;
+
     
 }

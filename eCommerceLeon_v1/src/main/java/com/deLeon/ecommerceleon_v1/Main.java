@@ -23,5 +23,7 @@ public class Main {
         staticFiles.location("/public");
                 
         get("/getProductos",ProductoController.getProductos); 
+        get("/getCarritoID",CarritoController.getCarritoID); 
+        get("/addProducto",CarritoController.addProducto); 
     }
 }

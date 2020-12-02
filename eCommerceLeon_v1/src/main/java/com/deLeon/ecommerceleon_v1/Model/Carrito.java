@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package com.deLeon.ecommerceleon_v1.Model;
-
+import lombok.Data;
 /**
  *
  * @author Luciano
  */
+@Data
 public class Carrito {
     private int id_carrito;
     private int id_cliente;
