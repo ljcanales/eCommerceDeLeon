@@ -11,7 +11,7 @@ function agregarCarrito(id_producto){
 		alert(url);
 		
         $.ajax({
-            url: consulta,
+            url: url,
             type: 'GET',
             success: function(ans) {
                 $("#micarrito").html(ans);
