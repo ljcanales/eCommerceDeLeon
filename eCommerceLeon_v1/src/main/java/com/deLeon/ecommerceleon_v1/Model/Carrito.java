@@ -10,5 +10,6 @@ package com.deLeon.ecommerceleon_v1.Model;
  * @author Luciano
  */
 public class Carrito {
-    
+    private int id_carrito;
+    private int id_cliente;
 }
