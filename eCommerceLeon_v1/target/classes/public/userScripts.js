@@ -14,11 +14,11 @@ function agregarCarrito(id_producto){
             url: consulta,
             type: 'GET',
             success: function(ans) {
-                $("#contenedor").html(ans);
+                $("#micarrito").html(ans);
                 console.log("Succes");
             },
             error: function(){
-                $("#contenedor").html("<p> Error Ajax addProducto </p>");
+                $("#micarrito").html("<p> Error Ajax addProducto </p>");
                 console.log("Fail");
             }
         });
