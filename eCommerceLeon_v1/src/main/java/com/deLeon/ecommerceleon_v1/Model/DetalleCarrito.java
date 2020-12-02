@@ -14,5 +14,8 @@ public class DetalleCarrito {
     private int id_carrito;
     private int id_producto;
     private int cant;
+    // PARA CONSULTA JOIN
+    private String nombre;
+    private double precio;
     //private double subtotal; //en caso de no lograr mandar un arreglo 
 }

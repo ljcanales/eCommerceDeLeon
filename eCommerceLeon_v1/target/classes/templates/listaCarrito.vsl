@@ -2,7 +2,7 @@
 
 	<div class="row total-header-section carrito">
         <div class="col-lg-6 col-sm-6 col-6">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger"> detalles_carrito.size() </span>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger"> $detalles_carrito.size() </span>
 		</div>
 		
 		<div class="col-lg-6 col-sm-6 col-6 total-section text-right">
@@ -18,8 +18,8 @@
 		</div>
                 
 		<div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
-			<p>Sony DSC-RX100M..</p>
-			<span class="price text-info"> $precio</span> <span class="count"> Cant: dc.getCant()  </span>
+			<p>$dc.getNombre()</p>
+			<span class="price text-info"> $ ${dc.getPrecio()}</span> <span class="count"> Cant: $dc.getCant()  </span>
 		</div>
 	</div>
 

@@ -28,7 +28,7 @@ public class DetalleCarritoDAO {
     }
     
    public List<DetalleCarrito> getDetallesCarrito(int idCarrito){
-        String queryStatement = "SELECT * FROM DETALLECARRITO WHERE ID_CARRITO = :id_carrito;";
+        String queryStatement = "SELECT producto.id_producto, nombre, cant, precio FROM DetalleCarrito JOIN Producto ON DetalleCarrito.id_producto = Producto.id_producto WHERE ID_CARRITO = :id_carrito;";
         List<DetalleCarrito> res=null;
         
          try (Connection con = Sql2oConnection.getSql2o().open()) {
@@ -36,8 +36,9 @@ public class DetalleCarritoDAO {
                     .addParameter("id_carrito", idCarrito)
                     .executeAndFetch(DetalleCarrito.class);
         } catch(Exception e){
-            System.out.println("Error en DetalleCarritoDAO-getDetallesCarrito()");
+            System.out.println("Error en DetalleCarritoDAO-getDetallesCarrito()"+e.toString());
         }
+        System.out.println(res.get(0).getNombre());
     return res;    
    }
 }
