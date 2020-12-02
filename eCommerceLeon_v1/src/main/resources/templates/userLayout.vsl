@@ -100,7 +100,7 @@
 
 <div class="no-gutters" style="display: flex; justify-content: flex-start; width: 100%; flex-wrap: wrap; margin: 2% 0;">   
   
-	#parse( $listaProductos )
+	#parse( $TemplateProductos )
     
 </div>
 

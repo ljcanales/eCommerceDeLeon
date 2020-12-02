@@ -7,21 +7,27 @@ package com.deLeon.ecommerceleon_v1.Controller;
 
 import com.deLeon.ecommerceleon_v1.Model.Producto;
 import com.deLeon.ecommerceleon_v1.Model.ProductoDAO;
+import java.util.HashMap;
 import java.util.List;
+import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import spark.template.velocity.VelocityTemplateEngine;
 
 /**
  *
  * @author Luciano
  */
 public class ProductoController {
-    public static Route getProductos = (Request request, Response response) -> {
+        public static Route getProductos = (Request request, Response response) -> {
         ProductoDAO pDAO = new ProductoDAO();
         List<Producto> res = pDAO.getAllProductos();
         
-        return res;
+        HashMap model = new HashMap();
+        model.put("productos", res);
+        model.put("TemplateProductos", "templates/listaProductos.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
     };
     
     public static Route checkId = (Request request, Response response) -> {

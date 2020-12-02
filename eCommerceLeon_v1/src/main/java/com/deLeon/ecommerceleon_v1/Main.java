@@ -16,8 +16,12 @@ import util.Path;
  */
 public class Main {
     public static void main(String[] args) { 
+        /*
         staticFiles.location(Path.Web.PUBLIC_FOLDER);
         get(Path.Web.INDEX,IndexController.getIndex);
-    
+        */
+        staticFiles.location("/public");
+                
+        get("/getProductos",ProductoController.getProductos); 
     }
 }
