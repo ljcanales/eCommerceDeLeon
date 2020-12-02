@@ -6,6 +6,10 @@
 package com.deLeon.ecommerceleon_v1.Model;
 import com.deLeon.ecommerceleon_v1.Model.*;
 import java.util.HashMap;
+<<<<<<< HEAD
+import java.util.List;
+=======
+>>>>>>> c298f348b37659d9d636c6a7a0ab71ef80014577
 import org.sql2o.Connection;
 import spark.ModelAndView;
 import spark.Request;
@@ -32,4 +36,17 @@ public class DetalleCarritoDAO {
         return r;
     }
     
+   public List<DetalleCarrito> getDetallesCarrito(int idCarrito){
+        String queryStatement = "SELECT * FROM DETALLECARRITO WHERE ID_CARRITO = :idCarrito;";
+        List<DetalleCarrito> res=null;
+        
+         try (Connection con = Sql2oConnection.getSql2o().open()) {
+            res = con.createQuery(queryStatement)
+                    .addParameter("id_cliente", idCarrito)
+                    .executeAndFetch(DetalleCarrito.class);
+        } catch(Exception e){
+            System.out.println("Error en DetalleCarritoDAO-getDetallesCarrito()");
+        }
+    return res;    
+   }
 }
