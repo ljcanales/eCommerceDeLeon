@@ -47,7 +47,11 @@ public class CarritoController {
         
         List<DetalleCarrito> carrito = dcDAO.getDetallesCarrito(idcarrito);
         
-        return null;
+        
+        HashMap model = new HashMap();
+        model.put("detalles_carrito", carrito);
+        //model.put("total", total);
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/listaCarrito.vsl")); 
     };
    
     public static Route getCarritoID = (Request request, Response response) -> {
