@@ -13,12 +13,39 @@ import spark.Response;
 import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
+
 /**
  *
  * @author Luciano
  */
 public class CarritoController {
+
     public static Route addProducto = (Request request, Response response) -> {
+        String id_producto = request.queryParams("id_producto");
+        String cant = request.queryParams("cant");
+        
+        //poner if verificar si ninguno de los parametros en null
+        
+        CarritoDAO cDAO = new CarritoDAO();
+        DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
+        DetalleCarrito dc = new DetalleCarrito();
+        
+        int cantidad = Integer.parseInt(cant);
+        int idcarrito = cDAO.getCarritoID(1); //cambiar 1 por el id del usuario
+        int idproducto = Integer.parseInt(id_producto);
+        
+        System.out.println("cant: " +cantidad+ " idCarrito: " +idcarrito+ " idProducto: " +idproducto);
+        
+        dc.setCant(cantidad);
+        dc.setId_carrito(idcarrito);
+        dc.setId_producto(idproducto);
+        
+        dcDAO.addDetalleCarrito(dc);
+        
+        ////////////////////////////////////////////////////////////////////////
+        
+        List<DetalleCarrito> carrito = dcDAO.getDetallesCarrito(idcarrito);
+        
         return null;
     };
    
