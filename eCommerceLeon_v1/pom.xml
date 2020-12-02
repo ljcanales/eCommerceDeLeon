@@ -16,11 +16,13 @@
             <artifactId>spark-core</artifactId> 
             <version>2.7.1</version>
         </dependency> 
+        
         <dependency>            
             <groupId>org.apache.velocity</groupId>             
             <artifactId>velocity</artifactId> 
             <version>1.7</version>         
         </dependency>
+        
         <dependency> 
             <groupId>org.sql2o</groupId>  
             <artifactId>sql2o</artifactId>  
@@ -30,13 +32,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.37</version>
+            <version>5.1.41</version>
         </dependency>
+        
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.8</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
