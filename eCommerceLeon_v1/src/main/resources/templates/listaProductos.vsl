@@ -1,0 +1,16 @@
+#foreach( $p in $productos) 
+	
+	<div class="card text-center">
+    <img src="de_leon.png" class="card-img-top" alt="img producto">
+    <div class="card-body">
+        <h5 class="card-title"> $p.getNombre() </h5>
+        <h6 class="card-text"> $p.getStock() </h6>
+        <p class="card-text">
+        <button type="button" onClick="agregarCarrito( $p.getId_producto() )" class="btn btn-success" style="width: 90%">
+          Añadir al Carrito
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div> 
+
+#end
