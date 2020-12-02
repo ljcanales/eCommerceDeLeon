@@ -14,5 +14,7 @@ import spark.Route;
  * @author Luciano
  */
 public class CarritoController {
-    
+    public static Route addProducto = (Request request, Response response) -> {
+        return null;
+    };
 }
