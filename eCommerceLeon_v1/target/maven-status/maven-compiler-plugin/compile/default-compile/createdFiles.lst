@@ -1,5 +1,12 @@
 util\Path$Web.class
-spark\template\velocity\VelocityTemplateEngine.class
+com\deLeon\ecommerceleon_v1\Controller\CarritoController.class
 com\deLeon\ecommerceleon_v1\Controller\IndexController.class
+com\deLeon\ecommerceleon_v1\Model\Producto.class
+com\deLeon\ecommerceleon_v1\Model\Carrito.class
+com\deLeon\ecommerceleon_v1\Model\DetalleCarrito.class
+com\deLeon\ecommerceleon_v1\Model\DetalleCarritoDAO.class
+spark\template\velocity\VelocityTemplateEngine.class
+com\deLeon\ecommerceleon_v1\Model\CarritoDAO.class
+com\deLeon\ecommerceleon_v1\Model\ProductoDAO.class
 util\Path.class
 com\deLeon\ecommerceleon_v1\Main.class
