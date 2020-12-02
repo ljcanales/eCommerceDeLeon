@@ -25,4 +25,21 @@ public class ProductoDAO {
         }
         return res;
     }
+    
+    public String existsId(int id){
+        String queryStatement = "SELECT * FROM PRODUCTO WHERE id = :id;";
+        String res = "0";
+        
+        try (Connection con = Sql2oConnection.getSql2o().open()) {
+            List<Producto> c = con
+                    .createQuery(queryStatement)
+                    .addParameter("id",id)
+                    .executeAndFetch(Producto.class);
+            if(c.size() > 0)
+                res = "1";
+        } catch(Exception e){
+            System.out.println("Error en ProductoDAO-getAllProductos");
+        }
+        return res;
+    }
 }
