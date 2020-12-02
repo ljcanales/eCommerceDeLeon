@@ -36,10 +36,10 @@ public class CarritoDAO {
             c.setId_cliente(id_cliente);
             queryStatement = "INSERT INTO CARRITO (ID_CLIENTE) VALUES (:id_cliente)";
             try (Connection con = Sql2oConnection.getSql2o().open()) {
-            id_carrito = (int) con
+            id_carrito = con
                         .createQuery(queryStatement)
                         .bind(c)
-                        .executeUpdate().getKey();
+                        .executeUpdate().getKey(int.class);
             } catch(Exception e){
                 System.out.println("Error en CarritoDAO-getCarritoID (2)");
             }

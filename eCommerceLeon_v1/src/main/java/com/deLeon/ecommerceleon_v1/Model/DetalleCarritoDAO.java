@@ -16,24 +16,24 @@ public class DetalleCarritoDAO {
     
     public boolean addDetalleCarrito(DetalleCarrito dc) {
         boolean r = false;
-        String queryStatement = "INSERT INTO CARRITO (ID_CARRITO, ID_PRODUCTO, CANT) VALUES (:id_carrito, :id_producto, :cant)";
-        try (Connection con = Sql2oConnection.getSql2o().open()) {
+        String queryStatement = "INSERT INTO DETALLECARRITO SET ID_CARRITO=:id_carrito, ID_PRODUCTO=:id_producto, CANT=:cant ON DUPLICATE KEY UPDATE CANT = CANT + :cant";
+        try (Connection con = Sql2oConnection.getSql2o().open()) {       
             con.createQuery(queryStatement).bind(dc).executeUpdate();
             r = true;
         } catch(Exception e){
-                System.out.println("Error en DetalleCarritoDAO-addDetalleCarrito (1)");
+                System.out.println("Error en DetalleCarritoDAO-addDetalleCarrito (1)"+e.toString());
         }
         
         return r;
     }
     
    public List<DetalleCarrito> getDetallesCarrito(int idCarrito){
-        String queryStatement = "SELECT * FROM DETALLECARRITO WHERE ID_CARRITO = :idCarrito;";
+        String queryStatement = "SELECT * FROM DETALLECARRITO WHERE ID_CARRITO = :id_carrito;";
         List<DetalleCarrito> res=null;
         
          try (Connection con = Sql2oConnection.getSql2o().open()) {
             res = con.createQuery(queryStatement)
-                    .addParameter("id_cliente", idCarrito)
+                    .addParameter("id_carrito", idCarrito)
                     .executeAndFetch(DetalleCarrito.class);
         } catch(Exception e){
             System.out.println("Error en DetalleCarritoDAO-getDetallesCarrito()");

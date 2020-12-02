@@ -51,7 +51,7 @@
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               Carrito
             </a>
-            <div class="dropdown-menu dropdown-menu-right cart-menu">
+            <div id="micarrito" class="dropdown-menu dropdown-menu-right cart-menu">
 
               <!--inicia carrito-->
 
