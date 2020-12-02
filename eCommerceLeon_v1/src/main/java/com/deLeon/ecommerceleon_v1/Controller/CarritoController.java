@@ -14,7 +14,6 @@ import spark.Response;
 import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
-
 /**
  *
  * @author Luciano
@@ -46,11 +45,34 @@ public class CarritoController {
         ////////////////////////////////////////////////////////////////////////
         
         List<DetalleCarrito> carrito = dcDAO.getDetallesCarrito(idcarrito);
-        
+        double total = 0;
+        for(DetalleCarrito d : carrito){
+            total+= d.getCant() * d.getPrecio();
+        }
         
         HashMap model = new HashMap();
         model.put("detalles_carrito", carrito);
-        //model.put("total", total);
+        model.put("total", total);
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/listaCarrito.vsl")); 
+    };
+    
+    public static Route updateCarrito = (Request request, Response response) -> {
+        
+        CarritoDAO cDAO = new CarritoDAO();
+        DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
+
+        int idcarrito = cDAO.getCarritoID(1); //cambiar 1 por el id del usuario
+   
+        List<DetalleCarrito> carrito = dcDAO.getDetallesCarrito(idcarrito);
+        
+        double total = 0;
+        for(DetalleCarrito d : carrito){
+            total+= d.getCant() * d.getPrecio();
+        }
+        
+        HashMap model = new HashMap();
+        model.put("detalles_carrito", carrito);
+        model.put("total", total);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/listaCarrito.vsl")); 
     };
    
@@ -62,6 +84,4 @@ public class CarritoController {
         model.put("id_carrito", id_carrito);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/borrarTemplate.vsl")); 
     };
-    
-
 }
