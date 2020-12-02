@@ -4,18 +4,9 @@
  * and open the template in the editor.
  */
 package com.deLeon.ecommerceleon_v1.Model;
-import com.deLeon.ecommerceleon_v1.Model.*;
-import java.util.HashMap;
-<<<<<<< HEAD
+
 import java.util.List;
-=======
->>>>>>> c298f348b37659d9d636c6a7a0ab71ef80014577
 import org.sql2o.Connection;
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import spark.template.velocity.VelocityTemplateEngine;
 import util.Sql2oConnection;
 /**
  *
