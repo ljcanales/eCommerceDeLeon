@@ -6,12 +6,13 @@
 package com.deLeon.ecommerceleon_v1.Model;
 
 import java.util.Date;
+import lombok.Data;
 
 /**
  *
  * @author Dario
  */
-@Date
+@Data
 public class Promocion {
     private int idpromo;
     private String nombre;
