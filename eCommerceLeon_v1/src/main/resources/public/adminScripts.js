@@ -19,18 +19,27 @@ function getFormPromo() {
 $(document).ready(function(){
 
     //   CHECK ID PRODUCTO
-    $("#IdProd").change(function() { //verificar id del input
+    $("#form-container").on("keyup", "#IdProd", function() { //verificar id del input
+        if($(this).val().toString() == "") {
+            $("#btnAgregar").prop('disabled', true);
+            $("#cant").prop('disabled', true);
+            $("#nombreProd").val("");
+            return;
+        }
+        
         var url = "http://localhost:4567/checkId?id=" + $(this).val().toString();
 
         $.ajax({
             url: url,
             type: 'GET',
             success: function(ans) {
-                $("#nombreProd").text(ans); //verificar id del input
+                $("#nombreProd").val(ans.toString()); //verificar id del input
                 if(ans != "") {
                     $("#btnAgregar").prop('disabled', false);
+                    $("#cant").prop('disabled', false);
                 } else {
                     $("#btnAgregar").prop('disabled', true);
+                    $("#cant").prop('disabled', true);
                 }
                 
                 console.log("Succes");
