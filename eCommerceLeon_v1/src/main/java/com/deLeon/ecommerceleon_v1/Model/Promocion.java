@@ -5,10 +5,17 @@
  */
 package com.deLeon.ecommerceleon_v1.Model;
 
+import java.util.Date;
+
 /**
  *
  * @author Dario
  */
+@Date
 public class Promocion {
-    
+    private int idpromo;
+    private String nombre;
+    private double descuento;
+    private Date fechadesde;
+    private Date fechahasta;
 }
