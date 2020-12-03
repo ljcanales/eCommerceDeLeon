@@ -27,16 +27,17 @@ public class ProductoDAO {
     }
     
     public String existsId(int id){
-        String queryStatement = "SELECT NOMBRE FROM PRODUCTO WHERE id = :id;";
-        String res = "";
-        
+        String queryStatement = "SELECT NOMBRE FROM PRODUCTO WHERE ID_PRODUCTO = :id;";
+        String res = null;
         try (Connection con = Sql2oConnection.getSql2o().open()) {
             res = con
                     .createQuery(queryStatement)
                     .addParameter("id",id).executeAndFetchFirst(String.class);
         } catch(Exception e){
-            System.out.println("Error en ProductoDAO-getAllProductos");
+            System.out.println("Error en ProductoDAO-existsId"+e.toString());
         }
+        if(res == null) 
+            res = "";
         return res;
     }
 }
