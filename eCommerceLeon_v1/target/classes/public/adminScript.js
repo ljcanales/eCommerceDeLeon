@@ -1,5 +1,26 @@
 $(document).ready(function(){
-    $("#IdProd").change(function(){ //verificar id del input
+
+    function select(getMethodName) {
+        var url = "http://localhost:4567/getForm?name=" + getMethodName.toString();
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(ans) {
+                $("#form-container").html(ans); //verificar id del contenedor
+                
+                console.log("Succes");
+            },
+            error: function() {
+                $("#form-container").html("<p>--- Error Ajax select!! ---</p>");
+                console.log("Fail");
+            }
+        });
+    }
+
+
+    //   CHECK ID PRODUCTO
+    $("#IdProd").change(function() { //verificar id del input
         var url = "http://localhost:4567/checkId?id=" + $(this).val().toString();
 
         $.ajax({

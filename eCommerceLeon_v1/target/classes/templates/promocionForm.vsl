@@ -1,6 +1,6 @@
 <form id="#myForm" action="/get" method="get">
     <h4>Promocion</h4>
-    <div class="form-row"></div>
+    <div class="form-row">
     <!--div class="form-group col-md-12"-->
         <div class="form-group">
             <label for="nombrePromo">Nombre Promocion</label>
@@ -67,7 +67,5 @@
       
             <button type="submit" class="btn btn-primary" style="width: 100%;">Guardar</button>
         </div>
-
     </div>
-      
-        </form>   
+</form>   
