@@ -25,9 +25,12 @@ public class Main {
         get("/getProductos",ProductoController.getProductos); 
         get("/getCarritoID",CarritoController.getCarritoID); 
         get("/addProducto",CarritoController.addProducto); 
-        get("/updateCarrito",CarritoController.updateCarrito); 
+        get("/updateCarrito",CarritoController.updateCarrito);
         
         get("/admin",IndexController.admin); 
+        get("/adminAddPromo",IndexController.adminAddPromo); 
         get("/getForm",IndexController.getForm);
+        
+        get("/checkId",ProductoController.checkId);
     }
 }

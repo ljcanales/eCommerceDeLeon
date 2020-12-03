@@ -1,8 +1,7 @@
 <form id="#myForm" action="/get" method="get">
     <h4>Promocion</h4>
     <div class="form-row">
-    <!--div class="form-group col-md-12"-->
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <label for="nombrePromo">Nombre Promocion</label>
             <input type="text" name="nombrePromo" id="nombrePromo" class="form-control">
         </div>
@@ -44,28 +43,25 @@
 
         <div class="form-group col-md-2">
             <button type="button" id="btnAgregar" class="btn btn-primary" style="width: 100%;">Agregar</button>
-            </div>
         </div>
-      
-      
-        <div class="form-row align-items-end">
-            <div class="form-group col-md-3">
-                <input type="number" class="form-control" name="idProd1" >
-            </div>
+    </div> 
 
-            <div class="form-group col-md-5">
-                <input type="text" class="form-control" id="nameProd1" >
-            </div>
 
-            <div class="form-group col-md-2">
-                <input type="number" class="form-control" name="cantProd1" >
-            </div>
 
-            <div class="form-group col-md-2">
-              <button type="button" id="boton1" class="btn btn-primary" style="width: 100%;">Eliminar</button>
-            </div>
-      
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Guardar</button>
+        <!--Ingresar con ajax los productos cargados en el siguiente-->
+        <div id="ProductosCargados">
+                
+
+
         </div>
+        <!--Ingresar con ajax los productos en el div anterior-->		
+		
+
+        
+	<div class="form-row">
+		<div class="form-group col-md-12">
+			<button type="submit" class="btn btn-primary" style="width: 100%;">Guardar</button>
+		</div>
     </div>
+    
 </form>   

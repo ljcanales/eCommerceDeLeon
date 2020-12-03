@@ -1,25 +1,10 @@
-function getFormPromo() {
-    var url = "http://localhost:4567/getForm?name=" + "addPromocion";
-
-    $.ajax({
-        url: url,
-        type: 'GET',
-        success: function(ans) {
-            $("#form-container").html(ans); //verificar id del contenedor
-            
-            console.log("Succes");
-        },
-        error: function() {
-            $("#form-container").html("<p>--- Error Ajax select!! ---</p>");
-            console.log("Fail");
-        }
-    });
-}
-
 $(document).ready(function(){
+    $("#nombreProd").prop('disabled', true);
+    $("#cant").prop('disabled', true);
+    $("#btnAgregar").prop('disabled', true);
 
     //   CHECK ID PRODUCTO
-    $("#form-container").on("keyup", "#IdProd", function() { //verificar id del input
+    $("#IdProd").keyup(function() { //verificar id del input
         if($(this).val().toString() == "") {
             $("#btnAgregar").prop('disabled', true);
             $("#cant").prop('disabled', true);
