@@ -52,27 +52,24 @@
       <h3>Menu</h3>
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+          <!--a class="nav-link active" href="#">Active</a-->
+		  <a class="nav-link" href="#">Promociones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Añadir Promocion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Pedidos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" href="#">Reportes</a>
         </li>
       </ul>
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-10 offset-sm-2">
 
-      <div class="productos-contenedor">
-
-         
-        parse( $template ) 
-
+      <div class="main-panel">
 
       </div>
     </div>
