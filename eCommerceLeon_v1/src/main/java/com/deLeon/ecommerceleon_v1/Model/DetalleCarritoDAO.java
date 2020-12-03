@@ -23,7 +23,6 @@ public class DetalleCarritoDAO {
         } catch(Exception e){
                 System.out.println("Error en DetalleCarritoDAO-addDetalleCarrito (1)"+e.toString());
         }
-        
         return r;
     }
     
