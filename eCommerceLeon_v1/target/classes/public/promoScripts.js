@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#btnAgregar").prop('disabled', true);
 
     //   CHECK ID PRODUCTO
-    $("#IdProd").change(function() { //verificar id del input
+    $("#IdProd").keyup(function() { //verificar id del input
         var url = "http://localhost:4567/checkId?id=" + $(this).val().toString();
 
         $.ajax({
