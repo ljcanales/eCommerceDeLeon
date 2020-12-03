@@ -1,18 +1,18 @@
 $(document).ready(function(){
 
     function select(getMethodName) {
-        var url = "http://localhost:4567/adminMethod?id=" + getMethodName.toString();
+        var url = "http://localhost:4567/getForm?name=" + getMethodName.toString();
 
         $.ajax({
             url: url,
             type: 'GET',
             success: function(ans) {
-                $("#contenedor").html(ans); //verificar id del contenedor
+                $("#form-container").html(ans); //verificar id del contenedor
                 
                 console.log("Succes");
             },
             error: function() {
-                $("#contenedor").html("<p>--- Error Ajax select!! ---</p>");
+                $("#form-container").html("<p>--- Error Ajax select!! ---</p>");
                 console.log("Fail");
             }
         });
