@@ -27,16 +27,13 @@ public class ProductoDAO {
     }
     
     public String existsId(int id){
-        String queryStatement = "SELECT * FROM PRODUCTO WHERE id = :id;";
-        String res = "0";
+        String queryStatement = "SELECT NOMBRE FROM PRODUCTO WHERE id = :id;";
+        String res = "";
         
         try (Connection con = Sql2oConnection.getSql2o().open()) {
-            List<Producto> c = con
+            res = con
                     .createQuery(queryStatement)
-                    .addParameter("id",id)
-                    .executeAndFetch(Producto.class);
-            if(c.size() > 0)
-                res = "1";
+                    .addParameter("id",id).executeAndFetchFirst(String.class);
         } catch(Exception e){
             System.out.println("Error en ProductoDAO-getAllProductos");
         }

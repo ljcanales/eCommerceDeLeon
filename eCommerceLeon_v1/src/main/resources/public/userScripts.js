@@ -15,7 +15,7 @@ function agregarCarrito(id_producto){
                 $("#micarrito").html("<p> Error Ajax addProducto </p>");
                 console.log("Fail");
             }
-        });	
+        });
 }
 
 $(document).ready(function(){

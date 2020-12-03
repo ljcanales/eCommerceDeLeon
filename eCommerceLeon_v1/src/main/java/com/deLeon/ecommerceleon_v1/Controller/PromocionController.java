@@ -5,10 +5,10 @@
  */
 package com.deLeon.ecommerceleon_v1.Controller;
 
-import com.deLeon.ecommerceleon_v1.Model.Producto;
-import com.deLeon.ecommerceleon_v1.Model.ProductoDAO;
 import com.deLeon.ecommerceleon_v1.Model.Promocion;
 import com.deLeon.ecommerceleon_v1.Model.PromocionDAO;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import spark.ModelAndView;
@@ -28,6 +28,28 @@ public class PromocionController {
         
         HashMap model = new HashMap();
         model.put("promociones", res);
+        model.put("TemplateOfertas", "templates/listaOfertas.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
+    };
+    public static Route addOferta = (Request request, Response response) -> {
+        Promocion p = new Promocion();
+            p.setNombre(request.queryParams("nombre"));
+            p.setDescuento(Double.parseDouble(request.queryParams("descuento")));
+            
+            SimpleDateFormat simple= new SimpleDateFormat("dd-MMM-yyyy");
+            Date fechadesde = simple.parse(request.queryParams("fechadesde"));
+            p.setFechadesde(fechadesde);
+           
+            Date fechahasta = simple.parse(request.queryParams("fechahasta"));
+            p.setFechahasta(fechahasta);
+        
+        PromocionDAO pDAO = new PromocionDAO();
+            pDAO.update(p);
+        
+        //ProductoDAO prodDAO = new ProductoDAO();
+       
+        HashMap model = new HashMap();
+        model.put("promociones", pDAO);
         model.put("TemplateOfertas", "templates/listaOfertas.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
     };
