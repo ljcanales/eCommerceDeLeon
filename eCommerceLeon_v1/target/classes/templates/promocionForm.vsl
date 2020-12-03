@@ -44,19 +44,24 @@
         <div class="form-group col-md-2">
             <button type="button" id="btnAgregar" class="btn btn-primary" style="width: 100%;">Agregar</button>
         </div>
-      
+    </div> 
+
+
+
         <!--Ingresar con ajax los productos cargados en el siguiente-->
-		<div id="ProductosCargados">
-			
+        <div id="ProductosCargados">
+                
 
 
-		</div>
+        </div>
         <!--Ingresar con ajax los productos en el div anterior-->		
 		
-		<div class="form-row">
-			<div class="form-group col-md-12">
-				<button type="submit" class="btn btn-primary" style="width: 100%;">Guardar</button>
-			</div>
-        </div>
+
+        
+	<div class="form-row">
+		<div class="form-group col-md-12">
+			<button type="submit" class="btn btn-primary" style="width: 100%;">Guardar</button>
+		</div>
     </div>
+    
 </form>   
