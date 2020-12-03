@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Bootstrap 4 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="adminStyle.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="de_leon.png" width="40" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      de Leon
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorias
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Almacen</a>
+              <a class="dropdown-item" href="#">Bebidas</a>
+              <a class="dropdown-item" href="#">Frutas</a>
+            </div>
+          </li>
+        </ul>
+    </div-->
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <!--li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li-->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Salir</a>
+          </li>     
+      </ul>
+    </div>
+</nav>
+
+<div class="container-fluid" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-2" style="position:fixed">
+      <h3>Menu</h3>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-10 offset-sm-2">
+
+      <div class="productos-contenedor">
+
+         
+        parse( $template ) 
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Footer</p>
+</div-->
+
+<!--SCRIPTS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="adminScripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<form id="#myForm" action="/get" method="get">
+    <h4>Promocion</h4>
+    <div class="form-row"></div>
+    <!--div class="form-group col-md-12"-->
+        <div class="form-group">
+            <label for="nombrePromo">Nombre Promocion</label>
+            <input type="text" name="nombrePromo" id="nombrePromo" class="form-control">
+        </div>
+    </div>         
+      
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label for="fechaInicio">Fecha de Inicio</label>
+            <input type="date" name="fechaInicio" id="fechaInicio" class="form-control">
+        </div>
+
+        <div class="form-group col-md-5">
+            <label for="fechaFin">Fecha de Fin</label>
+            <input type="date" name="fechaFin" id="fechaFin" class="form-control">
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="descuento">% Descuento</label>
+            <input type="number" name="descuento" class="form-control" id="descuento">
+        </div>
+    </div>         
+      
+    <h4>Producto</h4>
+    <div class="form-row align-items-end">
+        <div class="form-group col-md-3">
+            <label for="IdProd">ID Producto</label>
+            <input type="number" id="IdProd" class="form-control">
+        </div>
+
+        <div class="form-group col-md-5">
+            <label for="nombreProd">Nombre Producto</label>
+            <input type="text" id="nombreProd" class="form-control">
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="cant">Cantidad</label>
+            <input type="number" id="cant"  class="form-control">
+        </div>
+
+        <div class="form-group col-md-2">
+            <button type="button" id="btnAgregar" class="btn btn-primary" style="width: 100%;">Agregar</button>
+            </div>
+        </div>
+      
+      
+        <div class="form-row align-items-end">
+            <div class="form-group col-md-3">
+                <input type="number" class="form-control" name="idProd1" >
+            </div>
+
+            <div class="form-group col-md-5">
+                <input type="text" class="form-control" id="nameProd1" >
+            </div>
+
+            <div class="form-group col-md-2">
+                <input type="number" class="form-control" name="cantProd1" >
+            </div>
+
+            <div class="form-group col-md-2">
+              <button type="button" id="boton1" class="btn btn-primary" style="width: 100%;">Eliminar</button>
+            </div>
+      
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Guardar</button>
+        </div>
+
+    </div>
+      
+        </form>   
