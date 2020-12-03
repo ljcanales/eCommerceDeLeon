@@ -5,6 +5,13 @@ $(document).ready(function(){
 
     //   CHECK ID PRODUCTO
     $("#IdProd").keyup(function() { //verificar id del input
+        if($(this).val().toString() == "") {
+            $("#btnAgregar").prop('disabled', true);
+            $("#cant").prop('disabled', true);
+            $("#nombreProd").val("");
+            return;
+        }
+        
         var url = "http://localhost:4567/checkId?id=" + $(this).val().toString();
 
         $.ajax({
