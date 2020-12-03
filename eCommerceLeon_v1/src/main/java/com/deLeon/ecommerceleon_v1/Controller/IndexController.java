@@ -29,6 +29,13 @@ public class IndexController {
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/adminLayout.vsl")); 
     };
     
+    public static Route adminAddPromo = (Request request, Response response) -> {
+
+        HashMap model = new HashMap();
+        model.put("TemplateFormulario", "templates/promocionForm.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/adminAddPromo.vsl")); 
+    };
+    
     public static Route getForm = (Request request, Response response) -> {
         
         String f = request.queryParams("name");
