@@ -24,7 +24,7 @@ import spark.template.velocity.VelocityTemplateEngine;
  * @author Dario
  */
 public class PromocionController {
-    public static Route getPromocion = (Request request, Response response) -> {
+    public static Route getPromociones = (Request request, Response response) -> {
         PromocionDAO pDAO = new PromocionDAO();
         List<Promocion> res = pDAO.getAllPromociones();
         
