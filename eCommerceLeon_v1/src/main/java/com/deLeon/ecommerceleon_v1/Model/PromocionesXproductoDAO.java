@@ -5,10 +5,13 @@
  */
 package com.deLeon.ecommerceleon_v1.Model;
 
+import lombok.Data;
+
 /**
  *
  * @author Dario
  */
+@Data
 public class PromocionesXproductoDAO {
-    
+
 }

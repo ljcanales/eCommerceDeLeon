@@ -5,10 +5,15 @@
  */
 package com.deLeon.ecommerceleon_v1.Model;
 
+import lombok.Data;
+
 /**
  *
  * @author Dario
  */
+@Data
 public class PromocionesXproducto {
-    
+    private int id_promo;
+    private int id_producto;
+    private int cantidad;
 }

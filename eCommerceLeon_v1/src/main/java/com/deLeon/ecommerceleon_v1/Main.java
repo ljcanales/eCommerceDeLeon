@@ -28,5 +28,6 @@ public class Main {
         get("/updateCarrito",CarritoController.updateCarrito); 
         
         get("/admin",IndexController.admin); 
+        get("/getForm",IndexController.getForm);
     }
 }
