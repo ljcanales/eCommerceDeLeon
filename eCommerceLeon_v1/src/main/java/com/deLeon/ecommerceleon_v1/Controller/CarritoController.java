@@ -33,9 +33,7 @@ public class CarritoController {
         int cantidad = Integer.parseInt(cant);
         int idcarrito = cDAO.getCarritoID(1); //cambiar 1 por el id del usuario
         int idproducto = Integer.parseInt(id_producto);
-        
-        System.out.println("cant: " +cantidad+ " idCarrito: " +idcarrito+ " idProducto: " +idproducto);
-        
+    
         dc.setCant(cantidad);
         dc.setId_carrito(idcarrito);
         dc.setId_producto(idproducto);
@@ -71,7 +69,6 @@ public class CarritoController {
         }
         
         HashMap model = new HashMap();
-        model.put("id_carrito", idcarrito);
         model.put("detalles_carrito", carrito);
         model.put("total", total);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/listaCarrito.vsl")); 

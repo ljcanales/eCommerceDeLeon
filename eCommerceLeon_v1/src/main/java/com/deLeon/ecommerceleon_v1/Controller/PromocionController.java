@@ -25,15 +25,6 @@ import spark.template.velocity.VelocityTemplateEngine;
  * @author Dario
  */
 public class PromocionController {
-    public static Route getPromociones = (Request request, Response response) -> {
-        PromocionDAO pDAO = new PromocionDAO();
-        List<Promocion> res = pDAO.getAllPromociones();
-        
-        HashMap model = new HashMap();
-        model.put("promociones", res);
-        model.put("TemplateOfertas", "templates/listaOfertas.vsl");
-        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
-    };
     public static Route addPromocion = (Request request, Response response) -> {
         PromocionDAO pDAO = new PromocionDAO();
         // CREAR LA PROMOCION 

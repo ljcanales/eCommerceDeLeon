@@ -35,20 +35,4 @@ public class IndexController {
         model.put("TemplateFormulario", "templates/promocionForm.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/adminAddPromo.vsl")); 
     };
-    
-    public static Route getForm = (Request request, Response response) -> {
-        
-        String f = request.queryParams("name");
-        
-        HashMap model = new HashMap();
-        
-        switch(f){
-        
-            case "addPromocion":
-                return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/promocionForm.vsl"));
-
-        }
-        
-        return null; 
-    };
 }

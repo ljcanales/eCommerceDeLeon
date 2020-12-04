@@ -8,7 +8,6 @@ package com.deLeon.ecommerceleon_v1;
 import com.deLeon.ecommerceleon_v1.Controller.*;
 import static spark.Spark.staticFiles;
 import static spark.Spark.get;
-import util.Path;
 
 /**
  *
@@ -16,10 +15,7 @@ import util.Path;
  */
 public class Main {
     public static void main(String[] args) { 
-        /*
-        staticFiles.location(Path.Web.PUBLIC_FOLDER);
-        get(Path.Web.INDEX,IndexController.getIndex);
-        */
+
         staticFiles.location("/public");
         
         get("/",IndexController.getIndex);
@@ -30,10 +26,8 @@ public class Main {
         get("/updateCarrito",CarritoController.updateCarrito);
         get("/addPromocion",PromocionController.addPromocion);
         
-        
         get("/admin",IndexController.admin); 
         get("/adminAddPromo",IndexController.adminAddPromo); 
-        get("/getForm",IndexController.getForm);
         
         get("/checkId",ProductoController.checkId);
     }

@@ -16,17 +16,6 @@ import util.Sql2oConnection;
  */
 @Data
 public class PromocionDAO {
-    public List<Promocion> getAllPromociones(){
-        String queryStatement = "SELECT * FROM PROMOCION;";
-        List<Promocion> res = null;
-        
-        try (Connection con = Sql2oConnection.getSql2o().open()) {
-            res = con.createQuery(queryStatement).executeAndFetch(Promocion.class);
-        } catch(Exception e){
-            System.out.println("Error en PromocionDAO-getAllPromociones");
-        }
-        return res;
-    }
     public int addPromocion(Promocion p){
          
         String queryStatement = "INSERT INTO PROMOCION SET ID_PROMO=:id_promo, NOMBRE=:nombre, DESCUENTO=:descuento, FECHADESDE=:fechadesde, FECHAHASTA=:fechahasta";
