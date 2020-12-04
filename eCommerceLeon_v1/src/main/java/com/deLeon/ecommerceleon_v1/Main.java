@@ -26,6 +26,8 @@ public class Main {
         get("/getCarritoID",CarritoController.getCarritoID); 
         get("/addProducto",CarritoController.addProducto); 
         get("/updateCarrito",CarritoController.updateCarrito);
+        get("/addPromocion",PromocionController.addPromocion);
+        
         
         get("/admin",IndexController.admin); 
         get("/adminAddPromo",IndexController.adminAddPromo); 

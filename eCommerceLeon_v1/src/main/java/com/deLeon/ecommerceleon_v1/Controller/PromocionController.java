@@ -64,7 +64,7 @@ public class PromocionController {
                 // asignar atributos a promocionesXproductos
                 pp.setId_promo(id_promo);
                 pp.setId_producto(Integer.valueOf(aux[0]));
-                pp.setCantidad(Integer.valueOf(aux[0]));
+                pp.setCantidad(Integer.valueOf(aux[1]));
        
                 pxp.add(pp);
             }

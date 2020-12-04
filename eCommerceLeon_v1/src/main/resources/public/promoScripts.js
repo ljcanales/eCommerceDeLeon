@@ -73,12 +73,12 @@ function add(){
         });
 
         var url = "http://localhost:4567/addPromocion?";
-        url += "nombre=\""+$("#nombrePromo").val().toString()+"\"";
-        url += "&descuento=\""+$("#descuento").val().toString()+"\"";
-        url += "&fechadesde=\""+$("#fechaInicio").val().toString()+"\"";
-        url += "&fechahasta=\""+$("#fechaFin").val().toString()+"\"";
-        url += "&productos=\""+ todo+"\"";
-        
+        url += "nombre="+$("#nombrePromo").val().toString();
+        url += "&descuento="+$("#descuento").val().toString();
+        url += "&fechadesde="+$("#fechaInicio").val().toString();
+        url += "&fechahasta="+$("#fechaFin").val().toString();
+        url += "&productos="+ todo;
+        console.log(url);
 
         $.ajax({
             url: url,
