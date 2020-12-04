@@ -14,7 +14,7 @@ import lombok.Data;
  */
 @Data
 public class Promocion {
-    private int idpromo;
+    private int id_promo;
     private String nombre;
     private double descuento;
     private Date fechadesde;

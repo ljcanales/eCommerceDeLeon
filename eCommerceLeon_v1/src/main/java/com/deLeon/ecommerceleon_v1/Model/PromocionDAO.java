@@ -16,25 +16,25 @@ import util.Sql2oConnection;
  */
 @Data
 public class PromocionDAO {
-    public List<Promocion> getAllOfertas(){
+    public List<Promocion> getAllPromociones(){
         String queryStatement = "SELECT * FROM PROMOCION;";
         List<Promocion> res = null;
         
         try (Connection con = Sql2oConnection.getSql2o().open()) {
             res = con.createQuery(queryStatement).executeAndFetch(Promocion.class);
         } catch(Exception e){
-            System.out.println("Error en PromocionDAO-getAllOfertas");
+            System.out.println("Error en PromocionDAO-getAllPromociones");
         }
         return res;
     }
-    public void update(Promocion p){
+    public void addPromocion(Promocion p){
          
-         String queryStatement = "INSERT INTO PROMOCION SET IDPROMO=:idpromo, NOMBRE=:NOMBRE, DESCUENTO=:descuento, FECHADESDE=:fechadesde, FECHAHASTA=:fechahasta";
+         String queryStatement = "INSERT INTO PROMOCION SET ID_PROMO=:id_promo, NOMBRE=:nombre, DESCUENTO=:descuento, FECHADESDE=:fechadesde, FECHAHASTA=:fechahasta";
          
          try (Connection con = Sql2oConnection.getSql2o().open()) {       
             con.createQuery(queryStatement).bind(p).executeUpdate();
          } catch(Exception e){
-            System.out.println("Error en PromocionDAO-update"+e.toString());
+            System.out.println("Error en PromocionDAO addPromocion()"+e.toString());
             }
     }  
 }

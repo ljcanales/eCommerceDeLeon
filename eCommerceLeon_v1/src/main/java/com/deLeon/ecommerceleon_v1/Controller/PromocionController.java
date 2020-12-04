@@ -24,9 +24,9 @@ import spark.template.velocity.VelocityTemplateEngine;
  * @author Dario
  */
 public class PromocionController {
-    public static Route getPromocion = (Request request, Response response) -> {
+    public static Route getPromociones = (Request request, Response response) -> {
         PromocionDAO pDAO = new PromocionDAO();
-        List<Promocion> res = pDAO.getAllOfertas();
+        List<Promocion> res = pDAO.getAllPromociones();
         
         HashMap model = new HashMap();
         model.put("promociones", res);
@@ -34,8 +34,9 @@ public class PromocionController {
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
     };
     public static Route addPromocion = (Request request, Response response) -> {
-       
-        // CREAR LA PROMOCION
+        PromocionDAO pDAO = new PromocionDAO();
+        
+        // CREAR LA PROMOCION 
         Promocion p = new Promocion();
             p.setNombre(request.queryParams("nombre"));
             p.setDescuento(Double.parseDouble(request.queryParams("descuento")));
@@ -46,7 +47,7 @@ public class PromocionController {
            
             Date fechahasta = simple.parse(request.queryParams("fechahasta"));
             p.setFechahasta(fechahasta);
-        
+        pDAO.addPromocion(p);
         // AGREGAR LOS PRODUCTOS A LA PROMOCION
         PromocionesXproductoDAO pXp = new PromocionesXproductoDAO();
         
@@ -61,7 +62,7 @@ public class PromocionController {
        
                 prodpromo.add(pp);
             }
-        
+            pXp.addPromocionesXproductos(prodpromo);
        
         HashMap model = new HashMap();
         model.put("promociones", p);
