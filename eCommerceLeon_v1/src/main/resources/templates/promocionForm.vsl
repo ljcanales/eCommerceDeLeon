@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group col-md-2">
-            <button type="button" id="btnAgregar" class="btn btn-primary" style="width: 100%;">Agregar</button>
+            <button type="button" id="btnAgregar" class="btn btn-primary" onClick="add()" style="width: 100%;">Agregar</button>
         </div>
     </div> 
 
@@ -60,7 +60,7 @@
         
 	<div class="form-row">
 		<div class="form-group col-md-12">
-			<button type="submit" class="btn btn-primary" style="width: 100%;">Guardar</button>
+			<button type="submit" class="btn btn-primary" onClick="save()" style="width: 100%;">Guardar</button>
 		</div>
     </div>
     

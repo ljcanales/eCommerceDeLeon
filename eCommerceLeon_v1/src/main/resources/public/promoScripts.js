@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $("#nombreProd").prop('disabled', true);
     $("#cant").prop('disabled', true);
@@ -36,3 +37,60 @@ $(document).ready(function(){
         });
     });
 });
+
+function add(){  
+        var id = "value=\"" + $("#IdProd").val() + "\"";
+
+        var nombre = "value=\"" + $("#nombreProd").val() + "\"";
+        var cantidad = "value=\"" + $("#cant").val() + "\"";
+
+        var htmlstring=	"<div class=\"form-row align-items-end\">";
+        htmlstring+=			"<div class=\"form-group col-md-3\">";
+        htmlstring+=				"<input type=\"number\" class=\"form-control id\""+ id +"readonly>";
+        htmlstring+=			"</div>";
+        
+        htmlstring+= 			"<div class=\"form-group col-md-5\">";
+        htmlstring+=				"<input type=\"text\" class=\"form-control nombre\""+ nombre +"readonly>";
+        htmlstring+=			"</div>";
+        
+        htmlstring+=			"<div class=\"form-group col-md-2\">";
+        htmlstring+=				"<input type=\"number\" class=\"form-control cantidad\""+ cantidad +"readonly>";
+        htmlstring+=			"</div>";
+        
+        htmlstring+=			"<div class=\"form-group col-md-2\">";
+        htmlstring+=				"<button type=\"button\" onclick=\"eliminar(this)\" class=\"btn btn-primary\" style=\"width: 100%;\">Eliminar</button>";
+        htmlstring+=			"</div>";
+        htmlstring+=		"</div>";
+
+        $("#ProductosCargados").append(htmlstring); 
+
+    }
+    function save(){
+        var todo = "";
+        $("#ProductosCargados").find(".form-row").each(function(){
+        todo += $(this).find(".id").val() + ",";
+        todo += $(this).find(".cantidad").val() + "-";
+        });
+
+        var url = "http://localhost:4567/addPromocion?";
+        url += "nombre=\""+$("#nombrePromo").val().toString()+"\"";
+        url += "&descuento=\""+$("#descuento").val().toString()+"\"";
+        url += "&fechadesde=\""+$("#fechaInicio").val().toString()+"\"";
+        url += "&fechahasta=\""+$("#fechaFin").val().toString()+"\"";
+        url += "&productos=\""+ todo+"\"";
+        
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(ans) {
+                console.log("Succes");
+            },
+            error: function(){
+                console.log("Fail");
+            }
+        });
+}
+function eliminar(element) {
+    $(element).parent().parent().remove();
+}
