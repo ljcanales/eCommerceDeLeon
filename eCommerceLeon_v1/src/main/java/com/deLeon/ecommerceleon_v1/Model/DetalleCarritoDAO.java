@@ -5,6 +5,7 @@
  */
 package com.deLeon.ecommerceleon_v1.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.Connection;
 import util.Sql2oConnection;
@@ -28,7 +29,7 @@ public class DetalleCarritoDAO {
     
    public List<DetalleCarrito> getDetallesCarrito(int idCarrito){
         String queryStatement = "SELECT producto.id_producto, nombre, cant, precio FROM DetalleCarrito JOIN Producto ON DetalleCarrito.id_producto = Producto.id_producto WHERE ID_CARRITO = :id_carrito;";
-        List<DetalleCarrito> res=null;
+        List<DetalleCarrito> res= new ArrayList<DetalleCarrito>();
         
          try (Connection con = Sql2oConnection.getSql2o().open()) {
             res = con.createQuery(queryStatement)
@@ -37,7 +38,6 @@ public class DetalleCarritoDAO {
         } catch(Exception e){
             System.out.println("Error en DetalleCarritoDAO-getDetallesCarrito()"+e.toString());
         }
-        System.out.println(res.get(0).getNombre());
     return res;    
    }
 }
