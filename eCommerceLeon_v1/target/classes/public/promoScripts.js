@@ -84,7 +84,11 @@ function add(){
             url: url,
             type: 'GET',
             success: function(ans) {
+                var html_string =  "<button name='btnVolver' onClick='window.location.reload();' class='btn btn-success'>Volver</button>";
                 console.log("Succes");
+                if(ans == "ok"){
+                    $("#main-container").html(html_string);
+                }
             },
             error: function(){
                 console.log("Fail");

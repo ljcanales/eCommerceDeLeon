@@ -10,6 +10,7 @@ import com.deLeon.ecommerceleon_v1.Model.PromocionDAO;
 import com.deLeon.ecommerceleon_v1.Model.PromocionesXproducto;
 import com.deLeon.ecommerceleon_v1.Model.PromocionesXproductoDAO;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -41,32 +42,33 @@ public class PromocionController {
             p.setNombre(request.queryParams("nombre"));
             p.setDescuento(Double.parseDouble(request.queryParams("descuento")));
             
-            SimpleDateFormat simple= new SimpleDateFormat("dd-MMM-yyyy");
+            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd");
             Date fechadesde = simple.parse(request.queryParams("fechadesde"));
             p.setFechadesde(fechadesde);
            
             Date fechahasta = simple.parse(request.queryParams("fechahasta"));
             p.setFechahasta(fechahasta);
-        pDAO.addPromocion(p);
+        int id_promo = pDAO.addPromocion(p);
         // AGREGAR LOS PRODUCTOS A LA PROMOCION
-        PromocionesXproductoDAO pXp = new PromocionesXproductoDAO();
+        PromocionesXproductoDAO pxpDAO = new PromocionesXproductoDAO();
         
-            int cant =Integer.parseInt(request.queryParams("cantidad"));
-            List<PromocionesXproducto> prodpromo = null;
-            for(int i=0;i<cant;i++){
-                PromocionesXproducto pp= new PromocionesXproducto();
+            String productos = request.queryParams("productos");
+            String[] productosSeparados = productos.split("-");
+            
+            ArrayList<PromocionesXproducto> pxp = new ArrayList<PromocionesXproducto>();
+            
+            for(int i = 0; i < productosSeparados.length; i++){
+                String[] aux = productosSeparados[i].split(",");
+                PromocionesXproducto pp = new PromocionesXproducto();
+                
                 // asignar atributos a promocionesXproductos
-                pp.setId_promo(Integer.parseInt(request.queryParams("id_promo")));
-                pp.setId_producto(Integer.parseInt(request.queryParams("id_producto")));
-                pp.setId_producto(Integer.parseInt(request.queryParams("cantidad")));
+                pp.setId_promo(id_promo);
+                pp.setId_producto(Integer.valueOf(aux[0]));
+                pp.setCantidad(Integer.valueOf(aux[0]));
        
-                prodpromo.add(pp);
+                pxp.add(pp);
             }
-            pXp.addPromocionesXproductos(prodpromo);
-       
-        HashMap model = new HashMap();
-        model.put("promociones", p);
-        model.put("TemplateOfertas", "templates/listaOfertas.vsl");
-        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
+            pxpDAO.addPromocionesXproductos(pxp);
+        return "ok";
     };
 }

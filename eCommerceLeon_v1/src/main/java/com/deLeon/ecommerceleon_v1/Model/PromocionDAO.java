@@ -27,14 +27,20 @@ public class PromocionDAO {
         }
         return res;
     }
-    public void addPromocion(Promocion p){
+    public int addPromocion(Promocion p){
          
-         String queryStatement = "INSERT INTO PROMOCION SET ID_PROMO=:id_promo, NOMBRE=:nombre, DESCUENTO=:descuento, FECHADESDE=:fechadesde, FECHAHASTA=:fechahasta";
-         
-         try (Connection con = Sql2oConnection.getSql2o().open()) {       
-            con.createQuery(queryStatement).bind(p).executeUpdate();
-         } catch(Exception e){
-            System.out.println("Error en PromocionDAO addPromocion()"+e.toString());
-            }
+        String queryStatement = "INSERT INTO PROMOCION SET ID_PROMO=:id_promo, NOMBRE=:nombre, DESCUENTO=:descuento, FECHADESDE=:fechadesde, FECHAHASTA=:fechahasta";
+        int key= -1;
+        try (Connection con = Sql2oConnection.getSql2o().open()) {       
+            key = con
+                    .createQuery(queryStatement)
+                    .bind(p)
+                    .executeUpdate()
+                    .getKey(int.class);
+            return key;
+        } catch(Exception e){
+           System.out.println("Error en PromocionDAO addPromocion()"+e.toString());
+        }
+        return key;
     }  
 }
