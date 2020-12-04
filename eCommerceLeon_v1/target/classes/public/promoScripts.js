@@ -4,6 +4,7 @@ $(document).ready(function(){
     $("#cant").prop('disabled', true);
     $("#btnAgregar").prop('disabled', true);
     $("#btnGuardar").prop('disabled', true);
+    $("#IdProd").prop('disabled', true);
 
     //CHECK ID PRODUCTO AL INGRESAR POR TECLADO
     $("#IdProd").keyup(function() { //verificar id del input
@@ -92,15 +93,15 @@ $(document).ready(function(){
     });
     
     //CHECK FORM INPUTS
-    /*$("#nombrePromo").change(ctrlPromo());
-    $("#nombrePromo").keyup(ctrlPromo());    
-    $("#descuento").change(ctrlPromo());
-    $("#descuento").keyup(ctrlPromo());    
-    $("#fechaInicio").change(ctrlPromo());
-    $("#fechaInicio").keyup(ctrlPromo());
-    $("#fechaFin").change(ctrlPromo());
-    $("#fechaFin").keyup(ctrlPromo());
-    */
+    $("#nombrePromo").change(ctrlPromo);
+    $("#nombrePromo").keyup(ctrlPromo);    
+    $("#descuento").change(ctrlPromo);
+    $("#descuento").keyup(ctrlPromo);    
+    $("#fechaInicio").change(ctrlPromo);
+    $("#fechaInicio").keyup(ctrlPromo);
+    $("#fechaFin").change(ctrlPromo);
+    $("#fechaFin").keyup(ctrlPromo);
+    
 });
 
 function add(){  
@@ -179,12 +180,18 @@ function eliminar(element) {
 
 function ctrlPromo() {
     var today = new Date();
+    var from = new Date($("#fechaInicio").val());
+    var to = new Date($("#fechaFin").val());
+
     if( $("#nombrePromo").val().toString() != "" && 
         $("#descuento").val() > 0 && 
-        $("#fechaInicio").val() <  $("#fechaFin").val() &&
-        $("#fechaInicio").val() >= today){
-            $("#btnGuardar").prop('disabled', true);
-            $("#IdProd").prop('disabled', true);
-        }     
-        alert("hola");
+        from <  to  && from >= today){
+             $("#IdProd").prop('disabled', false);
+             if(cantProducts > 0)
+                $("#btnGuardar").prop('disabled', false);
+        }  
+    else{
+        $("#IdProd").prop('disabled', true);
+        $("#btnGuardar").prop('disabled', true);
+    }
 }
