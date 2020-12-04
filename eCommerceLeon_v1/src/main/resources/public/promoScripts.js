@@ -132,14 +132,9 @@ function eliminar(element) {
 }
 
 function ctrlPromo() {
-    var today = new Date();
-    var number_today = today.getFullYear()*10000+today.getMonth()*100+today.getDate();
-    
-    var from = new Date($("#fechaInicio").val());
-    var number_from = from.getFullYear()*10000+from.getMonth()*100+from.getDate()+1;
-    
-    var to = new Date($("#fechaFin").val());
-    var number_to = to.getFullYear()*10000+to.getMonth()*100+to.getDate()+1;
+    var number_today = parseInt(new Date().toJSON().substr(0, 10).replaceAll("-",""));
+    var number_from = parseInt($("#fechaInicio").val().replaceAll("-",""));
+    var number_to = parseInt($("#fechaFin").val().replaceAll("-",""));
 
     if( $("#nombrePromo").val().toString() != "" && 
         $("#descuento").val() > 0 && 
