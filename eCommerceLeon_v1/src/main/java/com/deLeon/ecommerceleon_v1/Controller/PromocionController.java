@@ -36,7 +36,6 @@ public class PromocionController {
     };
     public static Route addPromocion = (Request request, Response response) -> {
         PromocionDAO pDAO = new PromocionDAO();
-        
         // CREAR LA PROMOCION 
         Promocion p = new Promocion();
             p.setNombre(request.queryParams("nombre"));
