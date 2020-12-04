@@ -38,6 +38,9 @@ public class DetalleCarritoDAO {
         } catch(Exception e){
             System.out.println("Error en DetalleCarritoDAO-getDetallesCarrito()"+e.toString());
         }
+        
+        for(DetalleCarrito d : res)
+            System.out.println("Id carrito: " + d.getId_carrito());
     return res;    
    }
 }

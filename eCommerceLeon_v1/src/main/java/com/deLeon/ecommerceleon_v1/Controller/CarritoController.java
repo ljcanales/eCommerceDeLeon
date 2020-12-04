@@ -62,7 +62,7 @@ public class CarritoController {
         DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
 
         int idcarrito = cDAO.getCarritoID(1); //cambiar 1 por el id del usuario
-   
+        
         List<DetalleCarrito> carrito = dcDAO.getDetallesCarrito(idcarrito);
         
         double total = 0;
@@ -71,6 +71,7 @@ public class CarritoController {
         }
         
         HashMap model = new HashMap();
+        model.put("id_carrito", idcarrito);
         model.put("detalles_carrito", carrito);
         model.put("total", total);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/listaCarrito.vsl")); 

@@ -20,6 +20,7 @@ function agregarCarrito(id_producto,element){
     });
 }
 
+
 $(document).ready(function(){
 	var url = "http://localhost:4567/updateCarrito";
 
@@ -36,3 +37,11 @@ $(document).ready(function(){
         }
     });
 });
+
+function deleteProd(id_carrito, id_producto){  
+
+    var url = "http://localhost:4567/delProducto?id_carrito=" + id_carrito + "&id_producto=" + id_producto;
+
+    alert(url);
+
+}

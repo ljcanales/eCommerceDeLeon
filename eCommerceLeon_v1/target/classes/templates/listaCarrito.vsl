@@ -24,6 +24,9 @@
                     <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
                             <p>$dc.getNombre()</p>
                             <span class="price text-info"> $  $subtotal </span> <span class="count"> Cantidad: $dc.getCant()  </span>
+                            <a class="delProd" onclick="deleteProd($id_carrito, $dc.getId_producto())" href="#">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
                     </div>
             </div>
 
