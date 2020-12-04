@@ -21,6 +21,8 @@ public class Main {
         get(Path.Web.INDEX,IndexController.getIndex);
         */
         staticFiles.location("/public");
+        
+        get("/",IndexController.getIndex);
                 
         get("/getProductos",ProductoController.getProductos); 
         get("/getCarritoID",CarritoController.getCarritoID); 
