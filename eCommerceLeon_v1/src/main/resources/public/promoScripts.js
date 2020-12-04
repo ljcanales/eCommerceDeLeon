@@ -1,11 +1,13 @@
-
+var cantProducts = 0;
 $(document).ready(function(){
     $("#nombreProd").prop('disabled', true);
     $("#cant").prop('disabled', true);
     $("#btnAgregar").prop('disabled', true);
+    $("#btnGuardar").prop('disabled', true);
+    $("#IdProd").prop('disabled', true);
 
-    //   CHECK ID PRODUCTO
-    $("#IdProd").keyup(function() { //verificar id del input
+    //CHECK ID PRODUCTO
+    $("#IdProd").on("keyup change", function() { //verificar id del input
         if($(this).val().toString() == "") {
             $("#btnAgregar").prop('disabled', true);
             $("#cant").prop('disabled', true);
@@ -21,7 +23,7 @@ $(document).ready(function(){
             success: function(ans) {
                 $("#nombreProd").val(ans.toString()); //verificar id del input
                 if(ans != "") {
-                    $("#btnAgregar").prop('disabled', false);
+                    //$("#btnAgregar").prop('disabled', false);
                     $("#cant").prop('disabled', false);
                 } else {
                     $("#btnAgregar").prop('disabled', true);
@@ -36,6 +38,23 @@ $(document).ready(function(){
             }
         });
     });
+    
+    //CHECK CANTIDAD
+    $("#cant").on("keyup change", function() { //verificar id del input
+        if($("#nombreProd").val().toString() != "" && $(this).val() > 0) {
+            $("#btnAgregar").prop('disabled', false);
+        }  
+        if($(this).val() < 1) {
+            $("#btnAgregar").prop('disabled', true);
+        } 
+    });
+    
+    //CHECK FORM INPUTS
+    $("#nombrePromo").on("keyup change", ctrlPromo);
+    $("#descuento").on("keyup change", ctrlPromo);  
+    $("#fechaInicio").on("keyup change", ctrlPromo);
+    $("#fechaFin").on("keyup change", ctrlPromo);
+    
 });
 
 function add(){  
@@ -61,9 +80,18 @@ function add(){
         htmlstring+=				"<button type=\"button\" onclick=\"eliminar(this)\" class=\"btn btn-primary\" style=\"width: 100%;\">Eliminar</button>";
         htmlstring+=			"</div>";
         htmlstring+=		"</div>";
-
+        
         $("#ProductosCargados").append(htmlstring); 
-
+        
+        //CONTROLES DE CAMPOS
+        $("#btnGuardar").prop('disabled', false);
+        $("#IdProd").val("");
+        $("#cant").val("");
+        $("#nombreProd").val("");
+        $("#cant").prop('disabled', true);
+        
+        //CANTIDAD DE PRODUCTOS PARA CONTROL DEL BOTON GUARDAR
+        cantProducts += 1;
     }
     function save(){
         var todo = "";
@@ -97,4 +125,26 @@ function add(){
 }
 function eliminar(element) {
     $(element).parent().parent().remove();
+    cantProducts -= 1;
+    
+    if(cantProducts < 1)
+        $("#btnGuardar").prop('disabled', true);
+}
+
+function ctrlPromo() {
+    var number_today = parseInt(new Date().toJSON().substr(0, 10).replaceAll("-",""));
+    var number_from = parseInt($("#fechaInicio").val().replaceAll("-",""));
+    var number_to = parseInt($("#fechaFin").val().replaceAll("-",""));
+
+    if( $("#nombrePromo").val().toString() != "" && 
+        $("#descuento").val() > 0 && 
+        number_from <  number_to  && number_from >= number_today){
+             $("#IdProd").prop('disabled', false);
+             if(cantProducts > 0)
+                $("#btnGuardar").prop('disabled', false);
+        }  
+    else{
+        $("#IdProd").prop('disabled', true);
+        $("#btnGuardar").prop('disabled', true);
+    }
 }
