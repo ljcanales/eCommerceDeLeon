@@ -6,7 +6,7 @@
 package com.deLeon.ecommerceleon_v1.Controller;
 
 import com.deLeon.ecommerceleon_v1.Model.Producto;
-import com.deLeon.ecommerceleon_v1.Model.ProductoDAO;
+import com.deLeon.ecommerceleon_v1.DataAccessObject.ProductoDAO;
 import java.util.HashMap;
 import java.util.List;
 import spark.ModelAndView;

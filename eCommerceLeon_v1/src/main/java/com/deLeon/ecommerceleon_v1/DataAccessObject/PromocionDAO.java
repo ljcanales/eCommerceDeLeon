@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.deLeon.ecommerceleon_v1.Model;
+package com.deLeon.ecommerceleon_v1.DataAccessObject;
 
+import com.deLeon.ecommerceleon_v1.Model.Promocion;
 import java.util.List;
 import lombok.Data;
 import org.sql2o.Connection;

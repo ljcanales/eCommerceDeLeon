@@ -5,6 +5,8 @@
  */
 package com.deLeon.ecommerceleon_v1.Controller;
 
+import com.deLeon.ecommerceleon_v1.DataAccessObject.DetalleCarritoDAO;
+import com.deLeon.ecommerceleon_v1.DataAccessObject.CarritoDAO;
 import com.deLeon.ecommerceleon_v1.Model.*;
 import java.util.HashMap;
 import java.util.List;

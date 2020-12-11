@@ -6,9 +6,9 @@
 package com.deLeon.ecommerceleon_v1.Controller;
 
 import com.deLeon.ecommerceleon_v1.Model.Promocion;
-import com.deLeon.ecommerceleon_v1.Model.PromocionDAO;
+import com.deLeon.ecommerceleon_v1.DataAccessObject.PromocionDAO;
 import com.deLeon.ecommerceleon_v1.Model.PromocionesXproducto;
-import com.deLeon.ecommerceleon_v1.Model.PromocionesXproductoDAO;
+import com.deLeon.ecommerceleon_v1.DataAccessObject.PromocionesXproductoDAO;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,9 +38,10 @@ public class PromocionController {
            
             Date fechahasta = simple.parse(request.queryParams("fechahasta"));
             p.setFechahasta(fechahasta);
-        int id_promo = pDAO.addPromocion(p);
-        // AGREGAR LOS PRODUCTOS A LA PROMOCION
-        PromocionesXproductoDAO pxpDAO = new PromocionesXproductoDAO();
+            
+            int id_promo = pDAO.addPromocion(p);
+            // AGREGAR LOS PRODUCTOS A LA PROMOCION
+            PromocionesXproductoDAO pxpDAO = new PromocionesXproductoDAO();
         
             String productos = request.queryParams("productos");
             String[] productosSeparados = productos.split("-");
