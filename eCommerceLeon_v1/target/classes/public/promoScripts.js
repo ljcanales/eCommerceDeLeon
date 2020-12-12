@@ -58,30 +58,60 @@ $(document).ready(function(){
 });
 
 function add(){  
-        var id = "value=\"" + $("#IdProd").val() + "\"";
 
-        var nombre = "value=\"" + $("#nombreProd").val() + "\"";
-        var cantidad = "value=\"" + $("#cant").val() + "\"";
 
-        var htmlstring=	"<div class=\"form-row align-items-end\">";
-        htmlstring+=			"<div class=\"form-group col-md-3\">";
-        htmlstring+=				"<input type=\"number\" class=\"form-control id\""+ id +"readonly>";
-        htmlstring+=			"</div>";
-        
-        htmlstring+= 			"<div class=\"form-group col-md-5\">";
-        htmlstring+=				"<input type=\"text\" class=\"form-control nombre\""+ nombre +"readonly>";
-        htmlstring+=			"</div>";
-        
-        htmlstring+=			"<div class=\"form-group col-md-2\">";
-        htmlstring+=				"<input type=\"number\" class=\"form-control cantidad\""+ cantidad +"readonly>";
-        htmlstring+=			"</div>";
-        
-        htmlstring+=			"<div class=\"form-group col-md-2\">";
-        htmlstring+=				"<button type=\"button\" onclick=\"eliminar(this)\" class=\"btn btn-primary\" style=\"width: 100%;\">Eliminar</button>";
-        htmlstring+=			"</div>";
-        htmlstring+=		"</div>";
-        
-        $("#ProductosCargados").append(htmlstring); 
+        // ROW
+        $row = $("<div></div>").addClass("form-row align-items-end");
+
+        // id
+        $("<div></div>", {
+            "class":"form-group col-md-3"
+        }).append($("<input>", {
+            "type" : "number",
+            "class" : "form-control id",
+            "value" : $("#IdProd").val(),
+            "readonly" : ""
+        })).appendTo($row);
+
+        // nombre
+        $("<div></div>", {
+            "class":"form-group col-md-5"
+        }).append($("<input>", {
+            "type" : "text",
+            "class" : "form-control nombre",
+            "value" : $("#nombreProd").val(),
+            "readonly" : ""
+        })).appendTo($row);
+
+        // cantidad
+        $("<div></div>", {
+            "class":"form-group col-md-2"
+        }).append($("<input>", {
+            "type" : "number",
+            "class" : "form-control cantidad",
+            "value" : $("#cant").val(),
+            "readonly" : ""
+        })).appendTo($row);
+
+        // boton eliminar
+        $("<div></div>", {
+            "class":"form-group col-md-2"
+        }).append($("<input>", {
+            "type" : "button",
+            "class" : "btn btn-primary",
+            "style" : "width: 100%;",
+            "value" : "Eliminar",
+            "click" : function() {
+                $(this).parent().parent().remove();
+                cantProducts -= 1;
+                if(cantProducts < 1)
+                    $("#btnGuardar").prop('disabled', true);
+                }
+        })).appendTo($row);
+
+        // append row
+        $("#ProductosCargados").append($row);
+
         
         //CONTROLES DE CAMPOS
         $("#btnGuardar").prop('disabled', false);
@@ -127,13 +157,6 @@ function add(){
                 console.log("Fail");
             }
         });
-}
-function eliminar(element) {
-    $(element).parent().parent().remove();
-    cantProducts -= 1;
-    
-    if(cantProducts < 1)
-        $("#btnGuardar").prop('disabled', true);
 }
 
 function ctrlPromo() {
