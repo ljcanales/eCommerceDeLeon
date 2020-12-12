@@ -25,8 +25,9 @@ import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
 /**
- *
  * @author Dario
+ * @author Luciano
+ * @author Gaston
  */
 public class PromocionController {
     public static Route addPromocion = (Request request, Response response) -> {
