@@ -12,8 +12,9 @@ import org.sql2o.Connection;
 import util.Sql2oConnection;
 
 /**
- *
  * @author Dario
+ * @author Luciano
+ * @author Gaston
  */
 @Data
 public class PromocionDAO {

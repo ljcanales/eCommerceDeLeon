@@ -11,8 +11,9 @@ import org.sql2o.Connection;
 import util.Sql2oConnection;
 
 /**
- *
+ * @author Dario
  * @author Luciano
+ * @author Gaston
  */
 public class CarritoDAO {
     public int getCarritoID(int id_cliente){

@@ -9,8 +9,9 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- *
  * @author Dario
+ * @author Luciano
+ * @author Gaston
  */
 @Data
 public class Promocion {

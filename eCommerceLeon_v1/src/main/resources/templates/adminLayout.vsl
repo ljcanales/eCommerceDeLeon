@@ -20,27 +20,14 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!--div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categorias
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Almacen</a>
-              <a class="dropdown-item" href="#">Bebidas</a>
-              <a class="dropdown-item" href="#">Frutas</a>
-            </div>
-          </li>
-        </ul>
-    </div-->
+
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
           <!--li class="nav-item">
             <a class="nav-link" href="#">Login</a>
           </li-->
           <li class="nav-item">
-            <a class="nav-link" href="#">Salir</a>
+            <a class="nav-link" href="/logout">Salir</a>
           </li>     
       </ul>
     </div>

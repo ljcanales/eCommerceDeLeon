@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.Connection;
 import util.Sql2oConnection;
+
 /**
- *
+ * @author Dario
  * @author Luciano
+ * @author Gaston
  */
 public class DetalleCarritoDAO {
     

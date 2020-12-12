@@ -13,8 +13,9 @@ import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
 /**
- *
+ * @author Dario
  * @author Luciano
+ * @author Gaston
  */
 public class IndexController {
     public static Route getIndex = (Request request, Response response) -> {

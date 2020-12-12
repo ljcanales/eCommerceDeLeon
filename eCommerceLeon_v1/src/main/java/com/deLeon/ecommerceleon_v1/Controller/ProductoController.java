@@ -16,8 +16,9 @@ import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
 /**
- *
+ * @author Dario
  * @author Luciano
+ * @author Gaston
  */
 public class ProductoController {
         public static Route getProductos = (Request request, Response response) -> {
