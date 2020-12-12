@@ -94,23 +94,28 @@ function add(){
         cantProducts += 1;
     }
     function save(){
-        var todo = "";
+        promocionData = {};
+
+        promocionData["nombre"] = $("#nombrePromo").val().toString();
+        promocionData["descuento"] = $("#descuento").val().toString();
+        promocionData["fechadesde"] = $("#fechaInicio").val().toString();
+        promocionData["fechahasta"] = $("#fechaFin").val().toString();
+
+        var productos = [];
         $("#ProductosCargados").find(".form-row").each(function(){
-        todo += $(this).find(".id").val() + ",";
-        todo += $(this).find(".cantidad").val() + "-";
+            productos.push({
+                "id" : $(this).find(".id").val(),
+                "cantidad" : $(this).find(".cantidad").val()
+            });
         });
 
-        var url = "http://localhost:4567/addPromocion?";
-        url += "nombre="+$("#nombrePromo").val().toString();
-        url += "&descuento="+$("#descuento").val().toString();
-        url += "&fechadesde="+$("#fechaInicio").val().toString();
-        url += "&fechahasta="+$("#fechaFin").val().toString();
-        url += "&productos="+ todo;
-        console.log(url);
-
+        dataString = "promodata=" + JSON.stringify(promocionData);
+        dataString += "&productos=" + JSON.stringify(productos);
+        
         $.ajax({
-            url: url,
             type: 'GET',
+            url: "addPromocion",
+            data: dataString,
             success: function(ans) {
                 var html_string =  "<button name='btnVolver' onClick='window.location.reload();' class='btn btn-success'>Volver</button>";
                 console.log("Succes");
