@@ -32,7 +32,7 @@ $(document).ready(function(){
             console.log("Succes");
         },
         error: function(){
-            $("#micarrito").html("<p> Error Ajax addProducto </p>");
+            $("#micarrito").html("<p> Error Ajax updateCarrito </p>");
             console.log("Fail");
         }
     });

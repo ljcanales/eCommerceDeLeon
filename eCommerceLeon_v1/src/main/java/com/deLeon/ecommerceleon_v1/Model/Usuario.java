@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.deLeon.ecommerceleon_v1.Model;
+
 import lombok.Data;
 
 /**
@@ -12,12 +13,9 @@ import lombok.Data;
  * @author Gaston
  */
 @Data
-public class DetalleCarrito {
-    private int id_carrito;
-    private int id_producto;
-    private int cant;
-    // PARA CONSULTA JOIN
+public class Usuario {
+    private int id_usuario;
     private String nombre;
-    private double precio;
-    //private double subtotal; //en caso de no lograr mandar un arreglo 
+    private String contrasenia;
+    private int tipo;
 }

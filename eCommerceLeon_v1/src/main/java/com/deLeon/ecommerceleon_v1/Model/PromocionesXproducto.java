@@ -8,8 +8,9 @@ package com.deLeon.ecommerceleon_v1.Model;
 import lombok.Data;
 
 /**
- *
  * @author Dario
+ * @author Luciano
+ * @author Gaston
  */
 @Data
 public class PromocionesXproducto {

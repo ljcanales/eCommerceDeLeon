@@ -17,8 +17,9 @@ import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
 /**
- *
+ * @author Dario
  * @author Luciano
+ * @author Gaston
  */
 public class CarritoController {
 
@@ -33,7 +34,7 @@ public class CarritoController {
         DetalleCarrito dc = new DetalleCarrito();
         
         int cantidad = Integer.parseInt(cant);
-        int idcarrito = cDAO.getCarritoID(1); //cambiar 1 por el id del usuario
+        int idcarrito = cDAO.getCarritoID(request.session().attribute("id")); 
         int idproducto = Integer.parseInt(id_producto);
     
         dc.setCant(cantidad);
@@ -60,9 +61,9 @@ public class CarritoController {
         
         CarritoDAO cDAO = new CarritoDAO();
         DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
-
-        int idcarrito = cDAO.getCarritoID(1); //cambiar 1 por el id del usuario
         
+        int idcarrito = cDAO.getCarritoID(request.session().attribute("id")); 
+
         List<DetalleCarrito> carrito = dcDAO.getDetallesCarrito(idcarrito);
         
         double total = 0;
@@ -78,7 +79,7 @@ public class CarritoController {
    
     public static Route getCarritoID = (Request request, Response response) -> {
         CarritoDAO cDAO = new CarritoDAO();
-        int id_carrito = cDAO.getCarritoID(1);
+        int id_carrito = cDAO.getCarritoID(request.session().attribute("id")); 
         
         HashMap model = new HashMap();
         model.put("id_carrito", id_carrito);
