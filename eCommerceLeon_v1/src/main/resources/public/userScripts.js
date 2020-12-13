@@ -19,22 +19,18 @@ function agregarCarrito(id_producto,element){
 
 
 $(document).ready(function(){
-    var messaje = "al parecer la BD es mas lenta que la logica del sitio, por lo que el carrito se actualiza antes que la BD";
-    messaje+= ", por ese motivo envio una alerta antes de actualizar para darle el tiempo a la BD de realizar los cambios";
-    messaje+= ", estando en el carrito, al aparecer la alerta, presionar enter...";
-    alert(messaje);
     update_cart();
 });
 
 function update_cart(){
     var url = "http://localhost:4567/updateCarrito";
-    alert("update");
+
     $.ajax({
         url: url,
         type: 'GET',
         success: function(ans) {
             $("#micarrito").html(ans);
-            console.log("Succes");
+            console.log("Cart Update Succes");
         },
         error: function(){
             $("#micarrito").html("<p> Error Ajax updateCarrito </p>");
@@ -56,37 +52,24 @@ function deleteProd(id_carrito, id_producto){
         error: function(){
             console.log("Fail");
         }
-    });
-    
+    });   
     update_cart();
 }
 
-function increaseItem(id_producto){
-    var url = "http://localhost:4567/updateCant?op=increase" + "&id_producto=" + id_producto;
+function updateCant(id_producto, op){
+    var option = op? "increase" : "decrease";
+
+    var url = "http://localhost:4567/updateCant?op=" + option + "&id_producto=" + id_producto;
     
     $.ajax({
         url: url,
         type: 'GET',
+        async : false,
         success: function(ans) {
-            console.log("Succes");
+            console.log("increaseItem(): Succes");
         },
         error: function(){
-            console.log("Fail");
-        }
-    });
-    update_cart();
-}
-function decreaseItem(id_producto){
-    var url = "http://localhost:4567/updateCant?op=decrease" + "&id_producto=" + id_producto;
-    
-    $.ajax({
-        url: url,
-        type: 'GET',
-        success: function(ans) {
-            console.log("Succes");
-        },
-        error: function(){
-            console.log("Fail");
+            console.log("increaseItem(): Fail");
         }
     });
     update_cart();

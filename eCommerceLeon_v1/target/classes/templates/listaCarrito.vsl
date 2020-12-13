@@ -31,7 +31,7 @@
                                 <div class="col-8">
                                     <div class="input-group input-group-sm mb-3">
                                         <div class="input-group-prepend">
-                                            <button type="button" onClick="event.stopPropagation(); increaseItem(${dc.getId_producto()})" class="btn btn-success">
+                                            <button type="button" onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, true)" class="btn btn-success">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                             </button>
                                         </div>        
@@ -39,7 +39,7 @@
                                         <input type="number" class="form-control" id="cant" value="${dc.getCant()}"  readonly>
 
                                         <div class="input-group-prepend">
-                                            <button type="button" onClick="event.stopPropagation(); decreaseItem(${dc.getId_producto()})" class="btn btn-success">
+                                            <button type="button" onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, false)" class="btn btn-success">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                         </div> 
