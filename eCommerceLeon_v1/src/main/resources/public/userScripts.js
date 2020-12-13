@@ -8,11 +8,11 @@ function agregarCarrito(id_producto,element){
         type: 'GET',
         success: function(ans) {
             $("#micarrito").html(ans);
-            console.log("Succes");
+            console.log("agregarCarrito(): Succes");
         },
         error: function(){
             $("#micarrito").html("<p> Error Ajax addProducto </p>");
-            console.log("Fail");
+            console.log("agregarCarrito(): Fail");
         }
     });
 }
@@ -30,27 +30,28 @@ function update_cart(){
         type: 'GET',
         success: function(ans) {
             $("#micarrito").html(ans);
-            console.log("Cart Update Succes");
+            console.log("update_cart(): Succes");
         },
         error: function(){
             $("#micarrito").html("<p> Error Ajax updateCarrito </p>");
-            console.log("Fail");
+            console.log("update_cart(): Fail");
         }
     });
 }
 
-function deleteProd(id_carrito, id_producto){  
+function deleteProd(id_producto){  
 
-    var url = "http://localhost:4567/delProducto?id_carrito=" + id_carrito + "&id_producto=" + id_producto;
+    var url = "http://localhost:4567/delProducto?id_producto=" + id_producto;
     
     $.ajax({
         url: url,
         type: 'GET',
+        async : false,
         success: function(ans) {
-            console.log("Succes");
+            console.log("deleteProd(): Succes");
         },
         error: function(){
-            console.log("Fail");
+            console.log("deleteProd(): Fail");
         }
     });   
     update_cart();

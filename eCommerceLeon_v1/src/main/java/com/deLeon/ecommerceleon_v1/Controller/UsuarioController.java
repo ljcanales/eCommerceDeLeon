@@ -18,6 +18,7 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import com.deLeon.ecommerceleon_v1.Model.Usuario;
 import com.deLeon.ecommerceleon_v1.DataAccessObject.UsuarioDAO;
+import com.deLeon.ecommerceleon_v1.DataAccessObject.CarritoDAO; //para obtener id carrito
 
 /**
  * @author Dario
@@ -43,14 +44,18 @@ public class UsuarioController {
                 if(user.size() > 0){
                     //CREAR SEASION/COOKIE
                     Usuario usuarioLogeado = user.get(0);
+                    CarritoDAO cDAO = new CarritoDAO();
                     
                     req.session(true);                      // Crear y retornar la sesion
-                    req.session().attribute("id", usuarioLogeado.getId_usuario() );       
+                    req.session().attribute("user_id", usuarioLogeado.getId_usuario() );       
                     req.session().attribute("usertype", usuarioLogeado.getTipo() );                    
                     req.session().attribute("username", usuarioLogeado.getNombre() ); 
-                    //req.session().attribute("atributo")   //para recuperar atributo
+                    req.session().attribute("cart_id", cDAO.getCarritoID(usuarioLogeado.getId_usuario()) ); 
                     
-                    res.redirect("/getProductos");
+                    if(usuarioLogeado.getTipo() == 1)
+                        res.redirect("/getProductos");
+                    if(usuarioLogeado.getTipo() == 99) 
+                        res.redirect("/admin");
                 }else{
                     model.put("request",req);
                     model.put("error", "La contraseña o el email es incorrecto.");
@@ -66,7 +71,7 @@ public class UsuarioController {
     public static Route 
             Logout = (Request req, Response res) -> {
      
-            req.session().removeAttribute("id");
+            req.session().removeAttribute("user_id");
             req.session().removeAttribute("usertype");
             req.session().removeAttribute("username");
             res.redirect("/");
