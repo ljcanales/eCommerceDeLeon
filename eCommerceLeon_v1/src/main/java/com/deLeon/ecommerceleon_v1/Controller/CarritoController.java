@@ -52,13 +52,14 @@ public class CarritoController {
         }
         
         HashMap model = new HashMap();
+        model.put("id_carrito", idcarrito);
         model.put("detalles_carrito", carrito);
         model.put("total", total);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/listaCarrito.vsl")); 
     };
     
     public static Route updateCarrito = (Request request, Response response) -> {
-        
+        System.out.println("Start Update");
         CarritoDAO cDAO = new CarritoDAO();
         DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
         
@@ -69,9 +70,11 @@ public class CarritoController {
         double total = 0;
         for(DetalleCarrito d : carrito){
             total+= d.getCant() * d.getPrecio();
+            System.out.println(d.getNombre()+" - "+d.getCant());
         }
         
         HashMap model = new HashMap();
+        model.put("id_carrito", idcarrito);
         model.put("detalles_carrito", carrito);
         model.put("total", total);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/listaCarrito.vsl")); 
@@ -85,4 +88,55 @@ public class CarritoController {
         model.put("id_carrito", id_carrito);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/borrarTemplate.vsl")); 
     };
+    
+    public static Route delProducto = (Request request, Response response) -> {
+        CarritoDAO cDAO = new CarritoDAO();
+        DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
+        
+        int id_producto = Integer.parseInt(request.queryParams("id_producto"));
+        int id_carrito = Integer.parseInt(request.queryParams("id_carrito"));
+        
+        System.out.println("IDcarrito: "+id_carrito+ " IDproducto: "+id_producto);
+        
+        dcDAO.delProduct(id_carrito, id_producto);
+
+        return null; 
+    };
+    
+    public static Route updateCant = (Request request, Response response) -> {
+        CarritoDAO cDAO = new CarritoDAO();
+        
+        DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
+        
+        String op = request.queryParams("op");
+        int id_producto = Integer.parseInt(request.queryParams("id_producto"));
+        int id_carrito = cDAO.getCarritoID(request.session().attribute("id")); 
+        
+        List<DetalleCarrito> dc = dcDAO.getDetalleProduct(id_carrito, id_producto);
+        DetalleCarrito p = dc.get(0);
+        
+        System.out.println("OP: "+op);
+        
+        int cant = p.getCant();
+        if(op.equals("increase")){
+            cant++;
+            p.setCant(cant);
+            dcDAO.updateProduct(p);
+        }
+       
+        if(op.equals("decrease")){
+            cant--;
+            if(cant>0){
+                p.setCant(cant);
+                dcDAO.updateProduct(p);
+            }
+                
+            else{
+                dcDAO.delProduct(id_carrito, id_producto);
+            }
+        }
+
+        return null; 
+    };
 }
+

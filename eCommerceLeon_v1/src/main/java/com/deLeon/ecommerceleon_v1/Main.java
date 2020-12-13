@@ -34,12 +34,15 @@ public class Main {
             get("/getCarritoID",CarritoController.getCarritoID); 
             get("/addProducto",CarritoController.addProducto); 
             get("/updateCarrito",CarritoController.updateCarrito);
+            //CU MODIFICAR CANTIDAD
+            get("/delProducto",CarritoController.delProducto);
+            get("/updateCant",CarritoController.updateCant); 
         
         //CU AGREGAR PROMOCION
             //PAGINA PARA INICIAR CU
             get("/admin",IndexController.admin);       
              //PAGINAS DEL CU
-            get("/addPromocion",PromocionController.addPromocion);
+            post("/addPromocion",PromocionController.addPromocion);
             get("/adminAddPromo",IndexController.adminAddPromo);  
             get("/checkId",ProductoController.checkId);
         

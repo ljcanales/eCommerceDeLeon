@@ -23,10 +23,33 @@
 
                     <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
                             <p>$dc.getNombre()</p>
-                            <span class="price text-info"> $  $subtotal </span> <span class="count"> Cantidad: $dc.getCant()  </span>
-                            <a class="delProd" onclick="deleteProd($id_carrito, $dc.getId_producto())" href="#">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </a>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <span class="price text-info">$ $subtotal</span> 
+                                </div>
+                                <div class="col-8">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <button type="button" onClick="event.stopPropagation(); increaseItem(${dc.getId_producto()})" class="btn btn-success">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>        
+
+                                        <input type="number" class="form-control" id="cant" value="${dc.getCant()}"  readonly>
+
+                                        <div class="input-group-prepend">
+                                            <button type="button" onClick="event.stopPropagation(); decreaseItem(${dc.getId_producto()})" class="btn btn-success">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        ##    <a class="delProd" onclick="deleteProd($id_carrito, $dc.getId_producto())">
+                        ##        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        ##    </a>
                     </div>
             </div>
 

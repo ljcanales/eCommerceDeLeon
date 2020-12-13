@@ -143,7 +143,7 @@ function add(){
         dataString += "&productos=" + JSON.stringify(productos);
         
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: "addPromocion",
             data: dataString,
             success: function(ans) {

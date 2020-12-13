@@ -44,4 +44,44 @@ public class DetalleCarritoDAO {
 
     return res;    
    }
+   
+   public void delProduct(int idCarrito, int idProducto){
+        String queryStatement = "DELETE FROM DetalleCarrito WHERE ID_CARRITO = :id_carrito and ID_PRODUCTO = :id_producto ;";
+        
+         try (Connection con = Sql2oConnection.getSql2o().open()) {
+            con.createQuery(queryStatement)
+               .addParameter("id_carrito", idCarrito)
+               .addParameter("id_producto", idProducto)
+               .executeUpdate();
+        } catch(Exception e){
+            System.out.println("Error en DetalleCarritoDAO-delProduct()"+e.toString());
+        }   
+   }
+   
+   public List<DetalleCarrito> getDetalleProduct(int idCarrito, int idProducto){
+        List<DetalleCarrito> res= new ArrayList<DetalleCarrito>();
+        String queryStatement = "SELECT * FROM DetalleCarrito WHERE ID_CARRITO = :id_carrito and ID_PRODUCTO = :id_producto ;";
+        
+         try (Connection con = Sql2oConnection.getSql2o().open()) {
+            res = con.createQuery(queryStatement)
+                     .addParameter("id_carrito", idCarrito)
+                     .addParameter("id_producto", idProducto)
+                     .executeAndFetch(DetalleCarrito.class);
+        } catch(Exception e){
+            System.out.println("Error en DetalleCarritoDAO-getDetalleProduct()"+e.toString());
+        }  
+        return res;
+   }
+  
+   public void updateProduct(DetalleCarrito dc){
+        String queryStatement = "UPDATE  DetalleCarrito SET id_carrito = :id_carrito, id_producto = :id_producto, cant = :cant WHERE id_carrito = :id_carrito AND id_producto = :id_producto";
+        
+         try (Connection con = Sql2oConnection.getSql2o().open()) {
+            con.createQuery(queryStatement)
+               .bind(dc)
+               .executeUpdate();
+        } catch(Exception e){
+            System.out.println("Error en DetalleCarritoDAO-updateProduct()"+e.toString());
+        }   
+   }
 }
