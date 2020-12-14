@@ -11,6 +11,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 import java.util.List;
+import java.util.Map;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -33,11 +34,22 @@ public class PedidoController {
             model.put("userid", request.session().attribute("user_id"));
             model.put("Template", "templates/listaPedidos.vsl");
             model.put("username", request.session().attribute("username"));
+            
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
         };
     
     public static Route 
         getDetallesPedido = (Request request, Response res) -> {
-            return null;
+            DetallePedidoDAO dpDAO = new DetallePedidoDAO();
+            int idPedido = Integer.parseInt(request.queryParams("id"));
+            List<Map<String,Object>> dp = dpDAO.getDetallesPedido(idPedido, request.session().attribute("user_id"));
+            
+            HashMap model = new HashMap(); 
+            model.put("detalles", dp);
+            model.put("userid", request.session().attribute("user_id"));
+            model.put("Template", "templates/listaDetallesPedidos.vsl");
+            model.put("username", request.session().attribute("username"));
+            
+            return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl"));
         };
 }
