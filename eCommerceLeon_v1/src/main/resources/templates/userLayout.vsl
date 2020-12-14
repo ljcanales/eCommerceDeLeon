@@ -46,7 +46,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right user-options" aria-labelledby="userMenu">
                   <a class="dropdown-item" href="/logout">Salir</a>
-                  <a class="dropdown-item" href="#">Mis Pedidos</a>
+                  <a class="dropdown-item" href="/getPedidos">Mis Pedidos</a>
                 </div>
               </li>
  

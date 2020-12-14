@@ -46,6 +46,9 @@ public class Main {
             get("/adminAddPromo",IndexController.adminAddPromo);  
             get("/checkId",ProductoController.checkId);
         
+        //CU VER PEDIDOS
+            get("/getPedidos",PedidoController.getPedidos);  
+            get("/getDetallesPedido",PedidoController.getDetallesPedido);
         
     }
 }

@@ -6,9 +6,13 @@
 package com.deLeon.ecommerceleon_v1.Controller;
 import com.deLeon.ecommerceleon_v1.DataAccessObject.*;
 import com.deLeon.ecommerceleon_v1.Model.*;
+import java.util.HashMap;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import java.util.List;
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
 
 /**
  * @author Dario
@@ -17,12 +21,19 @@ import spark.Route;
  */
 public class PedidoController {
     public static Route 
-        getPedidos = (Request req, Response res) -> {
-            return null;
+        getPedidos = (Request request, Response res) -> {
+            PedidoDAO pDAO = new PedidoDAO();
+            List <Pedido> pedidos = pDAO.getPedidos(request.session().attribute("user_id"));
+            
+            HashMap model = new HashMap(); 
+            model.put("pedidos", pedidos);
+            model.put("Template", "templates/listaPedidos.vsl");
+            model.put("username", request.session().attribute("username"));
+            return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
         };
     
     public static Route 
-        getDetallesPedido = (Request req, Response res) -> {
+        getDetallesPedido = (Request request, Response res) -> {
             return null;
         };
 }
