@@ -1,0 +1,33 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Num Pedido</th>
+            <th scope="col">Fecha Pedido</th>
+            <th scope="col">Fecha Entrega</th>
+            <th scope="col">Total</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+
+  <tbody>
+
+    #foreach( $p in $pedidos) 
+
+        <tr>
+            <th scope="row">$p.getId_pedido()</th>
+            <td>$p.getFecha_pedido()</td>
+            <td>$p.getFecha_envio()</td>
+            <td>$p.getTotal()</td>
+            <td>$p.getEstado()</td>
+            <td>
+                <a class="verDet" href="/dir?id=${p.getId_pedido()}"> 
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+       
+    #end
+
+  </tbody>
+
+</table>

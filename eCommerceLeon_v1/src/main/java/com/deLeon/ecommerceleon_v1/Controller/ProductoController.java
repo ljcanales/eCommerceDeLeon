@@ -27,7 +27,7 @@ public class ProductoController {
         
         HashMap model = new HashMap(); 
         model.put("productos", res);
-        model.put("TemplateProductos", "templates/listaProductos.vsl");
+        model.put("Template", "templates/listaProductos.vsl");
         model.put("username", request.session().attribute("username"));
         return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
     };

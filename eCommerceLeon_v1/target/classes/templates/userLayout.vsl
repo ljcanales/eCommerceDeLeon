@@ -26,6 +26,7 @@
                     Categorias
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/getProductos">Todos</a>
                     <a class="dropdown-item" href="#">Almacen</a>
                     <a class="dropdown-item" href="#">Bebidas</a>
                     <a class="dropdown-item" href="#">Frutas</a>
@@ -82,12 +83,8 @@
     </div>
 </nav>
 
-<div class="no-gutters" style="display: flex; justify-content: flex-start; width: 100%; flex-wrap: wrap; margin: 2% 0;">   
-  
-	#parse( $TemplateProductos )
-    
-</div>
-
+    #parse( $Template )
+ 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Grupo 2 - AyDS II & POO 2020 - Ecommerce Covid Edition</p>
 </div>
