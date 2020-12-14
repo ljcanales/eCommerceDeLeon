@@ -25,10 +25,10 @@
                             <p>$dc.getNombre()</p>
 
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-5">
                                     <span class="price text-info">$ $subtotal</span> 
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <div class="input-group input-group-sm mb-3">
                                         <div class="input-group-prepend">
                                             <button type="button" onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, true)" class="btn btn-success">
