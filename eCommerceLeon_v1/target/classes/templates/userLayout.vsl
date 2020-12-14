@@ -21,56 +21,64 @@
     </button>
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categorias
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Almacen</a>
-              <a class="dropdown-item" href="#">Bebidas</a>
-              <a class="dropdown-item" href="#">Frutas</a>
-            </div>
-          </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categorias
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Almacen</a>
+                    <a class="dropdown-item" href="#">Bebidas</a>
+                    <a class="dropdown-item" href="#">Frutas</a>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-          <!--li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li-->
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Salir</a>
-          </li>  
-          <li class="nav-item dropdown cart">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              Carrito
-            </a>
-            <div id="micarrito" class="dropdown-menu dropdown-menu-right cart-menu">
+            <!--li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li-->
 
-              <!--inicia carrito-->
-
-              <div class="row total-header-section carrito">
-                  <div class="col-lg-6 col-sm-6 col-6">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">0</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
-                    <p>Total: <span class="text-info">$0</span></p>
-                  </div>
-              </div>
-              
-              
-              <div class="row">
-                <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                  <button class="btn btn-primary btn-block">Comprar</button>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  $username
+                </a>
+                <div class="dropdown-menu dropdown-menu-right user-options" aria-labelledby="userMenu">
+                  <a class="dropdown-item" href="/logout">Salir</a>
+                  <a class="dropdown-item" href="#">Mis Pedidos</a>
                 </div>
-              </div>
+              </li>
+ 
+            <li class="nav-item dropdown cart">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    Carrito
+                </a>
+                <div id="micarrito" class="dropdown-menu dropdown-menu-right cart-menu">
 
-            <!--termina carrito-->
+                    <!--inicia carrito-->
 
-            </div> 
-        </li>      
-      </ul>
+                    <div class="row total-header-section carrito">
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">0</span>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
+                            <p>Total: <span class="text-info">$0</span></p>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                            <button class="btn btn-primary btn-block">Comprar</button>
+                        </div>
+                    </div>
+
+                    <!--termina carrito-->
+
+                </div> 
+            </li>   
+        </ul>
     </div>
 </nav>
 
