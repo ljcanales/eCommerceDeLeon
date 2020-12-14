@@ -1,33 +1,36 @@
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Num Pedido</th>
-            <th scope="col">Fecha Pedido</th>
-            <th scope="col">Fecha Entrega</th>
-            <th scope="col">Total</th>
-            <th scope="col">Estado</th>
-        </tr>
-    </thead>
+<div class="my-3 mx-auto" style="width: 80%; min-height: 66vh">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Num Pedido</th>
+                <th scope="col">Fecha Pedido</th>
+                <th scope="col">Fecha Entrega</th>
+                <th scope="col">Total</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Ver Detalle</th>
+            </tr>
+        </thead>
 
-  <tbody>
+      <tbody>
 
-    #foreach( $p in $pedidos) 
+        #foreach( $p in $pedidos) 
 
-        <tr>
-            <th scope="row">$p.getId_pedido()</th>
-            <td>$p.getFecha_pedido()</td>
-            <td>$p.getFecha_envio()</td>
-            <td>$p.getTotal()</td>
-            <td>$p.getEstado()</td>
-            <td>
-                <a class="verDet" href="/dir?id=${p.getId_pedido()}"> 
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
-       
-    #end
+            <tr>
+                <th scope="row">$p.getId_pedido()</th>
+                <td>$p.getFecha_pedido()</td>
+                <td>$p.getFecha_envio()</td>
+                <td>$p.getTotal()</td>
+                <td>$p.getEstado()</td>
+                <td>
+                    <a class="verDet" href="/verDet?id_cliente=${userid}&id_pedido=${p.getId_pedido()}"> 
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
 
-  </tbody>
+        #end
 
-</table>
+      </tbody>
+
+    </table>
+</div>

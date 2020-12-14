@@ -25,8 +25,12 @@ public class PedidoController {
             PedidoDAO pDAO = new PedidoDAO();
             List <Pedido> pedidos = pDAO.getPedidos(request.session().attribute("user_id"));
             
+            for(Pedido p: pedidos)
+                System.out.println("Pedido: " +p.getTotal());
+            
             HashMap model = new HashMap(); 
             model.put("pedidos", pedidos);
+            model.put("userid", request.session().attribute("user_id"));
             model.put("Template", "templates/listaPedidos.vsl");
             model.put("username", request.session().attribute("username"));
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl")); 
