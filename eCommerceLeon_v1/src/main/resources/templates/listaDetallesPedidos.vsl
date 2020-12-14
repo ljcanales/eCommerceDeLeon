@@ -1,0 +1,28 @@
+<div class="my-3 mx-auto" style="width: 80%; min-height: 66vh">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio Unit</th>
+                <th scope="col">Sub Total</th>
+            </tr>
+        </thead>
+
+      <tbody>
+
+        #foreach( $d in $detalles) 
+            #set ($st = $d.get("cantidad") * $d.get("precio"))
+            <tr>
+                <th scope="row">$d.get("nombre")</th>
+                <td>$d.get("cantidad")</td>
+                <td>$d.get("precio")</td>
+                <td>$st</td>
+            </tr>
+
+        #end
+
+      </tbody>
+
+    </table>
+</div>
