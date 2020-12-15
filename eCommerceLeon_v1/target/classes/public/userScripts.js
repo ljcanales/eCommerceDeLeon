@@ -75,3 +75,21 @@ function updateCant(id_producto, op){
     });
     update_cart();
 }
+
+function comprar(){
+
+    var url = "http://localhost:4567/comprarCarrito";
+    
+    $.ajax({
+        url: url,
+        type: 'GET',
+        async : false,
+        success: function(ans) {
+            console.log("comprar(): Succes");
+        },
+        error: function(){
+            console.log("comprar(): Fail");
+        }
+    });
+    update_cart();
+}
