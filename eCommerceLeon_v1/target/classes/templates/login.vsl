@@ -13,60 +13,60 @@
 
   <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-      <img src="de_leon.png" width="40" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-      de Leon
+        <img src="de_leon.png" width="40" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        de Leon
     </a>
 	
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
     
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Volver</a>
-          </li>      
-      </ul>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Volver</a>
+            </li>      
+        </ul>
     </div>
 </nav>
 
 <div class="contenido">
 
-	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1 class="display-4">Iniciar Sesion!</h1>
-			<p class="lead">
-				#if ($error)
-					<div class="alert alert-danger" role="alert">
-					  $error
-					</div>
-				#end
+    <div class="jumbotron jumbotron-fluid">
+	<div class="container">
+            <h1 class="display-4">Iniciar Sesion!</h1>
+            <p class="lead">
+		#if ($error)
+                    <div class="alert alert-danger" role="alert">
+			$error
+                    </div>
+		#end
 
-				<form action='' method='post'>
-					<div class="form-group">
-						<label for="username">Nombre de Usuario</label>
-						<input type="text" class="form-control" id="username" value="$!request.queryParams("Nombre")" name="username" placeholder="Usuario">    
-					</div>
+		<form action='' method='post'>
+                    <div class="form-group">
+			<label for="username">Nombre de Usuario</label>
+			<input type="text" class="form-control" id="username" value="$!request.queryParams("Nombre")" name="username" placeholder="Usuario">    
+                    </div>
 
-					<div class="form-group">
-						<label for="exampleInputPassword1">Contraseña</label>
-						<input type="password" class="form-control" id="pass"  name="pass" placeholder="Contraseña">
-					</div>
-					<button type="submit" class="btn btn-primary">Loguearse</button>
-				</form>
-			</p>
-		</div>
+                    <div class="form-group">
+			<label for="exampleInputPassword1">Contraseña</label>
+			<input type="password" class="form-control" id="pass"  name="pass" placeholder="Contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Loguearse</button>
+		</form>
+            </p>
 	</div>
+    </div>
 
 </div>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Grupo 2 - AyDS II & POO 2020 - Ecommerce Covid Edition</p>
+<div class="jumbotron text-center fixed-bottom" style="margin-bottom:0">
+    <p>Grupo 2 - AyDS II & POO 2020 - Ecommerce Covid Edition</p>
 </div>
-  <!--SCRIPTS-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!--script src="userScripts.js"></script-->
+    <!--SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--script src="userScripts.js"></script-->
 </body>
 </html>
