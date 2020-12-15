@@ -84,4 +84,15 @@ public class DetalleCarritoDAO {
             System.out.println("Error en DetalleCarritoDAO-updateProduct()"+e.toString());
         }   
    }
+   
+   public void cleanCart(int id_carrito){
+       String sql = "DELETE FROM DETALLECARRITO WHERE id_carrito = :id_carrito";
+       try (Connection con = Sql2oConnection.getSql2o().open()) {
+            con.createQuery(sql)
+               .addParameter("id_carrito", id_carrito)
+               .executeUpdate();
+        } catch(Exception e){
+            System.out.println("Error en DetalleCarritoDAO-cleanCart()"+e.toString());
+        }   
+    }
 }

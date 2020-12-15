@@ -30,4 +30,18 @@ public class PedidoDAO {
         }
         return res;
     }
+    
+    public int addPedido(Pedido p){
+        String sql = "INSERT INTO PEDIDO (id_pedido, id_cliente, fecha_pedido, fecha_envio, total, estado) VALUES (:id_pedido, :id_cliente, :fecha_pedido, :fecha_envio, :total, :estado)";
+        int id_pedido = 0;
+        try (Connection con = Sql2oConnection.getSql2o().open()) {
+            id_pedido = (int) con.createQuery(sql)
+                                 .bind(p)
+                                 .executeUpdate()
+                                 .getKey();
+        } catch(Exception e) {
+            System.out.println("Error en PedidoDAO-addPedido()" + e.toString());
+        }
+        return id_pedido;
+    }
 }

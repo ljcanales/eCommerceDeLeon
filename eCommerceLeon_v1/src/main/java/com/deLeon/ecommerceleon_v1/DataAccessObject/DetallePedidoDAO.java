@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.deLeon.ecommerceleon_v1.DataAccessObject;
+import com.deLeon.ecommerceleon_v1.Model.DetallePedido;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,5 +31,16 @@ public class DetallePedidoDAO {
             System.out.println("Error en DetallePedidoDAO-getDetallesPedido()" + e.toString());
         }
         return res;
+    }
+    
+    public void addDetallePedido(DetallePedido dp){
+        String sql = "INSERT INTO DETALLEPEDIDO (id_pedido, id_producto, cantidad, precio) VALUES (:id_pedido, :id_producto, :cantidad, :precio)";
+        try (Connection con = Sql2oConnection.getSql2o().open()) {
+            con.createQuery(sql)
+               .bind(dp)
+               .executeUpdate();
+        } catch(Exception e) {
+            System.out.println("Error en PedidoDAO-addPedido()" + e.toString());
+        }
     }
 }
