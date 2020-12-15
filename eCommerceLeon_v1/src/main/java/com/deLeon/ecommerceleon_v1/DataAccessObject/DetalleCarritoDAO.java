@@ -58,7 +58,7 @@ public class DetalleCarritoDAO {
         }   
    }
    
-   public List<DetalleCarrito> getDetalleProduct(int idCarrito, int idProducto){
+   public DetalleCarrito getDetalleProduct(int idCarrito, int idProducto){
         List<DetalleCarrito> res= new ArrayList<DetalleCarrito>();
         String queryStatement = "SELECT * FROM DetalleCarrito WHERE ID_CARRITO = :id_carrito and ID_PRODUCTO = :id_producto ;";
         
@@ -67,10 +67,11 @@ public class DetalleCarritoDAO {
                      .addParameter("id_carrito", idCarrito)
                      .addParameter("id_producto", idProducto)
                      .executeAndFetch(DetalleCarrito.class);
+            return res.get(0);
         } catch(Exception e){
             System.out.println("Error en DetalleCarritoDAO-getDetalleProduct()"+e.toString());
         }  
-        return res;
+        return null;
    }
   
    public void updateProduct(DetalleCarrito dc){

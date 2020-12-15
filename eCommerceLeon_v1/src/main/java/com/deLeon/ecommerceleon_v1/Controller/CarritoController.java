@@ -104,7 +104,6 @@ public class CarritoController {
     
     public static Route 
         updateCant = (Request request, Response response) -> {
-            CarritoDAO cDAO = new CarritoDAO();
 
             DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
 
@@ -112,21 +111,20 @@ public class CarritoController {
             int id_producto = Integer.parseInt(request.queryParams("id_producto"));
             int id_carrito = request.session().attribute("cart_id");
 
-            List<DetalleCarrito> dc = dcDAO.getDetalleProduct(id_carrito, id_producto);
-            DetalleCarrito p = dc.get(0);
+            DetalleCarrito dc = dcDAO.getDetalleProduct(id_carrito, id_producto);
 
-            int cant = p.getCant();
+            int cant = dc.getCant();
             if(op.equals("increase")){
                 cant++;
-                p.setCant(cant);
-                dcDAO.updateProduct(p);
+                dc.setCant(cant);
+                dcDAO.updateProduct(dc);
             }
 
             if(op.equals("decrease")){
                 cant--;
                 if(cant>0){
-                    p.setCant(cant);
-                    dcDAO.updateProduct(p);
+                    dc.setCant(cant);
+                    dcDAO.updateProduct(dc);
                 }
                 else{
                     dcDAO.delProduct(id_carrito, id_producto);
