@@ -159,6 +159,7 @@ public class CarritoController {
             Pedido pedido = new Pedido();
             pedido.setId_cliente(request.session().attribute("user_id"));
             pedido.setTotal(total);
+            pedido.setEstado("guardado");
 
             int id_pedido = new PedidoDAO().addPedido(pedido);
             
