@@ -64,7 +64,7 @@
                 #if($detalles_carrito.size() == 0)
                     <button class="btn btn-primary btn-block" disabled>Comprar</button>
                 #else
-                    <button class="btn btn-primary btn-block" onclick="comprar()">Comprar</button>
+                    <button class="btn btn-primary btn-block" onclick="comprar();">Comprar</button>
                 #end
 
             </div>

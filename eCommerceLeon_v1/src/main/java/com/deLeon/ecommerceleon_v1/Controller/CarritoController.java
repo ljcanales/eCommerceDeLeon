@@ -171,8 +171,8 @@ public class CarritoController {
             
             dcDAO.cleanCart(id_carrito);
             
-            return null; 
-        }; //FIN updateCant()
+            return ""; 
+        }; //FIN comprarCarrito()
     
 }
 

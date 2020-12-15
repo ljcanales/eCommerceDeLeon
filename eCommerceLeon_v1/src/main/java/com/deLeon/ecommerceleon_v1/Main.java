@@ -37,6 +37,8 @@ public class Main {
             //CU MODIFICAR CANTIDAD
             get("/delProducto",CarritoController.delProducto);
             get("/updateCant",CarritoController.updateCant); 
+            //COMPRAR
+            get("/comprarCarrito", CarritoController.comprarCarrito);
         
         //CU AGREGAR PROMOCION
             //PAGINA PARA INICIAR CU

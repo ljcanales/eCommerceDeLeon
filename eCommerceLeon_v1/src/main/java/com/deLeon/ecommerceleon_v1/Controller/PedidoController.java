@@ -43,6 +43,7 @@ public class PedidoController {
             
             HashMap model = new HashMap(); 
             model.put("detalles", dp);
+            model.put("idPedido", idPedido);
             model.put("userid", request.session().attribute("user_id"));
             model.put("Template", "templates/listaDetallesPedidos.vsl");
             model.put("username", request.session().attribute("username"));

@@ -32,13 +32,13 @@ public class PedidoDAO {
     }
     
     public int addPedido(Pedido p){
-        String sql = "INSERT INTO PEDIDO (id_pedido, id_cliente, fecha_pedido, fecha_envio, total, estado) VALUES (:id_pedido, :id_cliente, :fecha_pedido, :fecha_envio, :total, :estado)";
+        String sql = "INSERT INTO PEDIDO (id_pedido, id_cliente, fecha_pedido, fecha_envio, total, estado) VALUES (:id_pedido, :id_cliente, CURRENT_DATE, :fecha_envio, :total, :estado)";
         int id_pedido = 0;
         try (Connection con = Sql2oConnection.getSql2o().open()) {
             id_pedido = (int) con.createQuery(sql)
                                  .bind(p)
                                  .executeUpdate()
-                                 .getKey();
+                                 .getKey(int.class);
         } catch(Exception e) {
             System.out.println("Error en PedidoDAO-addPedido()" + e.toString());
         }
