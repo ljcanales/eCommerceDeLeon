@@ -17,10 +17,10 @@
 
             <tr>
                 <th scope="row">$!{p.getId_pedido()}</th>
-                <td>$!{p.getFecha_pedido()}</td>
-                <td>$!{p.getFecha_envio()}</td>
-                <td>$!{p.getTotal()}</td>
-                <td>$!{p.getEstado()}</td>
+                <td>  $!{p.getFecha_pedido()}</td>
+                <td>  $!{p.getFecha_envio()}</td>
+                <td>$ $!{p.getTotal()}</td>
+                <td>  $!{p.getEstado()}</td>
                 <td>
                     <a class="verDet" href="/getDetallesPedido?id_pedido=${p.getId_pedido()}"> 
                         <i class="fa fa-info-circle" aria-hidden="true"></i>

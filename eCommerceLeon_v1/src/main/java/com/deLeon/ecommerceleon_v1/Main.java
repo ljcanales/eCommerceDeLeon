@@ -51,6 +51,5 @@ public class Main {
         //CU VER PEDIDOS
             get("/getPedidos",PedidoController.getPedidos);  
             get("/getDetallesPedido",PedidoController.getDetallesPedido);
-        
     }
 }

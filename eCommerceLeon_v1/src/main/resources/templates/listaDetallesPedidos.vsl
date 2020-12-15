@@ -1,5 +1,5 @@
 <div class="my-3 mx-auto" style="width: 80%; min-height: 66vh">
-        <p>DETALLES DEL PEDIDO $idPedido</p>
+        <h6>DETALLES DEL PEDIDO $idPedido</h6>
         <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -16,13 +16,14 @@
                 #set ($st = $d.get("cantidad") * $d.get("precio"))
                 <tr>
                     <th scope="row">$d.get("nombre")</th>
-                    <td>$d.get("cantidad")</td>
-                    <td>$d.get("precio")</td>
-                    <td>$st</td>
+                    <td>  $d.get("cantidad")</td>
+                    <td>  $d.get("precio")</td>
+                    <td>$ $st</td>
                 </tr>
 
             #end
 
         </tbody>
     </table>
+    <button type="button" class="btn btn-dark" onclick="window.location.href='/getPedidos'">Volver a Mis Pedidos</button>
 </div>
