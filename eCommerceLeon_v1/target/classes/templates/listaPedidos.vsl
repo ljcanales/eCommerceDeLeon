@@ -22,7 +22,7 @@
                 <td>$p.getTotal()</td>
                 <td>$p.getEstado()</td>
                 <td>
-                    <a class="verDet" href="/verDet?id_cliente=${userid}&id_pedido=${p.getId_pedido()}"> 
+                    <a class="verDet" href="/getDetallesPedido?id_pedido=${p.getId_pedido()}"> 
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                     </a>
                 </td>

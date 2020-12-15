@@ -9,20 +9,19 @@
             </tr>
         </thead>
 
-      <tbody>
+        <tbody>
 
-        #foreach( $d in $detalles) 
-            #set ($st = $d.get("cantidad") * $d.get("precio"))
-            <tr>
-                <th scope="row">$d.get("nombre")</th>
-                <td>$d.get("cantidad")</td>
-                <td>$d.get("precio")</td>
-                <td>$st</td>
-            </tr>
+            #foreach( $d in $detalles) 
+                #set ($st = $d.get("cantidad") * $d.get("precio"))
+                <tr>
+                    <th scope="row">$d.get("nombre")</th>
+                    <td>$d.get("cantidad")</td>
+                    <td>$d.get("precio")</td>
+                    <td>$st</td>
+                </tr>
 
-        #end
+            #end
 
-      </tbody>
-
+        </tbody>
     </table>
 </div>

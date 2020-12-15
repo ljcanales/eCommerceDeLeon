@@ -26,9 +26,6 @@ public class PedidoController {
             PedidoDAO pDAO = new PedidoDAO();
             List <Pedido> pedidos = pDAO.getPedidos(request.session().attribute("user_id"));
             
-            for(Pedido p: pedidos)
-                System.out.println("Pedido: " +p.getTotal());
-            
             HashMap model = new HashMap(); 
             model.put("pedidos", pedidos);
             model.put("userid", request.session().attribute("user_id"));
@@ -41,8 +38,8 @@ public class PedidoController {
     public static Route 
         getDetallesPedido = (Request request, Response res) -> {
             DetallePedidoDAO dpDAO = new DetallePedidoDAO();
-            int idPedido = Integer.parseInt(request.queryParams("id"));
-            List<Map<String,Object>> dp = dpDAO.getDetallesPedido(idPedido, request.session().attribute("user_id"));
+            int idPedido = Integer.parseInt(request.queryParams("id_pedido"));
+            List<Map<String,Object>> dp = dpDAO.getDetallesPedido(idPedido);
             
             HashMap model = new HashMap(); 
             model.put("detalles", dp);

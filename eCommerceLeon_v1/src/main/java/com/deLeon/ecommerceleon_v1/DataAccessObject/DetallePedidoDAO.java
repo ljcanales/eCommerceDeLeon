@@ -17,20 +17,18 @@ import util.Sql2oConnection;
  */
 public class DetallePedidoDAO {
     
-    public List<Map<String,Object>> getDetallesPedido(int idPedido, int idCliente) {
-        String queryStatement = "SELECT producto.id_producto, nombre, cantidad, precio FROM DetallePedido JOIN Producto ON DetallePedido.id_producto = Producto.id_producto WHERE ID_PEDIDO = :id_pedido AND ID_CLIENTE = :id_cliente;";
+    public List<Map<String,Object>> getDetallesPedido(int idPedido) {
+        String queryStatement = "SELECT producto.id_producto, nombre, cantidad, DetallePedido.precio FROM DetallePedido JOIN Producto ON DetallePedido.id_producto = Producto.id_producto WHERE ID_PEDIDO = :id_pedido;";
         List<Map<String,Object>> res = new ArrayList<Map<String,Object>>();
         
         try (Connection con = Sql2oConnection.getSql2o().open()) {
             res = con.createQuery(queryStatement)
                     .addParameter("id_pedido", idPedido)
-                    .addParameter("id_cliente", idCliente)
                     .executeAndFetchTable()
                     .asList();
         } catch(Exception e) {
             System.out.println("Error en DetallePedidoDAO-getDetallesPedido()" + e.toString());
         }
-
         return res;
     }
 }
