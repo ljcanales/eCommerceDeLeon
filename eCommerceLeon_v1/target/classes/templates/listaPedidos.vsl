@@ -1,4 +1,4 @@
-<div class="my-3 mx-auto" style="width: 80%; min-height: 66vh">
+<div class="my-3 mx-auto col-sm-12 col-lg-10" style="min-height: 66vh">
     <table class="table">
         <thead class="thead-dark">
             <tr>
