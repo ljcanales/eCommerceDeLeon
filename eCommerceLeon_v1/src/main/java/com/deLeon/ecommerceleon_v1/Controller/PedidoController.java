@@ -6,7 +6,6 @@
 package com.deLeon.ecommerceleon_v1.Controller;
 import com.deLeon.ecommerceleon_v1.DataAccessObject.*;
 import com.deLeon.ecommerceleon_v1.Model.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import spark.Request;
 import spark.Response;
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
-import util.ListaPedidos;
+import util.ListaPedidoFiltrada;
 
 /**
  * @author Dario
@@ -30,7 +29,7 @@ public class PedidoController {
             HashMap model = new HashMap();
             
             if(request.queryParams("filtro") != null){
-                ListaPedidos filtrado = new ListaPedidos(pedidos, request.queryParams("filtro"));
+                ListaPedidoFiltrada filtrado = new ListaPedidoFiltrada(pedidos, request.queryParams("filtro"));
                 model.put("pedidos", filtrado);
             } else {
                 model.put("pedidos", pedidos);
