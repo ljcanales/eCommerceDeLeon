@@ -13,10 +13,10 @@ import java.util.List;
  *
  * @author Luciano
  */
-public class ListaPedidos implements Iterable<Pedido> {
+public class ListaPedidoFiltrada implements Iterable<Pedido> {
     private final List<Pedido> list;
     private final String filter;
-    public ListaPedidos(final List<Pedido> list, final String filter) {
+    public ListaPedidoFiltrada(final List<Pedido> list, final String filter) {
         this.list = list;
         this.filter = filter;
     }
