@@ -65,3 +65,7 @@ i{
     top: 50px !important;
     width:150px !important;
 }
+
+.wide-btn{
+    width: 100%;
+}

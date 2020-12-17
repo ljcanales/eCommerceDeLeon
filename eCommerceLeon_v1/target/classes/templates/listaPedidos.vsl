@@ -1,3 +1,29 @@
+<div class="my-3 mx-auto col-sm-12 col-lg-10">
+    <div class="row justify-content-between">
+        <div class="col-3">
+            <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=guardado' ">
+                Guardados
+            </button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=entregado' ">
+                Entregados
+            </button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=en espera' ">
+                En Espera
+            </button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=en preparacion' ">
+                En Preparacion
+            </button>
+        </div>
+    </div>
+</div>
+
+
 <div class="my-3 mx-auto col-sm-12 col-lg-10" style="min-height: 66vh">
     <table class="table">
         <thead class="thead-dark">
@@ -33,4 +59,12 @@
       </tbody>
 
     </table>
+
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">No se hallaron pedidos!</h4>
+        <p>Lo sentimos pero no encontramos pedidos en esta busqueda.</p>
+        <p>Compruebe que el filtro de pedidos aplicado sea el correcto.</p>
+        <hr>
+        <p class="mb-0">Le sugerimos que lo intente con otro filtro.</p>
+    </div>
 </div>
