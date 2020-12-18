@@ -28,6 +28,8 @@
                                 <div class="col-5">
                                     <span class="price text-info">$ $subtotal</span> 
                                 </div>
+
+                                <!-- ALTERNATIVA CON INPUT -->
                                 <div class="col-7">
                                     <div class="input-group input-group-sm mb-3">
                                         <div class="input-group-prepend">
@@ -45,11 +47,27 @@
                                         </div> 
                                     </div>
                                 </div>
+
+                                <!-- ALTERNATIVA SIN INPUT -->
+                                <!--div class="col-7">
+
+                                    <a onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, true)">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </a>
+                                     
+                                    <span class="badge badge-pill badge-success" id="span-cant"> ${dc.getCant()} </span>
+
+                                    <a onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, false)">
+                                        <i class="fas fa-minus-circle"></i>
+                                    </a>
+
+                                    <a class="delProd" onclick="event.stopPropagation(); deleteProd( $dc.getId_producto() )">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+
+                                </div-->
                             </div>
-                          
-                        ##    <a class="delProd" onclick="deleteProd($id_carrito, $dc.getId_producto())">
-                        ##        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        ##    </a>
+                  
                     </div>
             </div>
 
