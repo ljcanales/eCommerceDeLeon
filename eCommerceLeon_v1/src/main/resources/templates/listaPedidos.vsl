@@ -31,7 +31,7 @@
 
 <div class="my-3 mx-auto col-sm-12 col-lg-10" style="min-height: 66vh">
 
-    #if( $pedidos.size() > 0 )
+    #if( ! $pedidos.isEmpty() )
 
         <table class="table">
             <thead class="thead-dark">
