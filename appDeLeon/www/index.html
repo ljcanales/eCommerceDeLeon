@@ -4,6 +4,7 @@
         <meta charset="utf-8">
 
         <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -19,20 +20,33 @@
         
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Login</a>
-            <a href="#">Catalogo</a>
+            <a href="#" onclick="inicioSesion();">Iniciar Sesión</a>
+            <a href="#" onclick="mostrarCatalogo();">Catalogo</a>
             <a href="#">Mis Pedidos</a>
             <a href="#">Logout</a>
         </div>
 
-        <ul class="nav" style="background-color: rgb(0, 184, 61);">
-            <li class="nav-item mx-3 my-2" onclick="openNav()">
-                <img src="img/Hamburger_icon.svg" alt="">
-            </li>
-            <a class="navbar-brand " href="#" style="background-color: rgb(146, 146, 146); padding: 0% 5% ;">
-                <img src="img/icon_DeLeon.png" width="40" class="d-inline-block align-top" alt="" loading="lazy">
-            </a>
-        </ul>
+        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
+            <div class="nav order-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" onclick="toggleNav()">
+                        <img src="img/icons/Hamburger_icon.svg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="mx-auto order-1">
+                <a class="navbar-brand mx-auto" href="#">
+                    <img src="img/icons/icon_DeLeon.png" width="40" class="d-inline-block align-top" alt="" loading="lazy">
+                    
+                </a>
+            </div>
+        </nav>
+
+        <!-- CONTENIDO APP -->
+        <div id="main-panel" class="container">
+            
+        </div>
+
 
         <!--SCRIPTS-->
         <script type="text/javascript" src="cordova.js"></script>

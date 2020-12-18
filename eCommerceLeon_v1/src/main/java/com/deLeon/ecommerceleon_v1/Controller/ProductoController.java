@@ -37,4 +37,15 @@ public class ProductoController {
         ProductoDAO pDAO = new ProductoDAO();
         return pDAO.existsId(id);
     };
+    
+    public static Route appgetProductos = (Request request, Response response) -> {
+        ProductoDAO pDAO = new ProductoDAO();
+        List<Producto> res = pDAO.getAllProductos();
+        
+        HashMap model = new HashMap(); 
+        model.put("productos", res);
+        //model.put("Template", "templates/listaProductos.vsl");
+        //model.put("username", request.session().attribute("username"));
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/appListaProductos.vsl")); 
+    };
 }

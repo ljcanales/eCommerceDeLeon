@@ -51,5 +51,9 @@ public class Main {
         //CU VER PEDIDOS
             get("/getPedidos",PedidoController.getPedidos);  
             get("/getDetallesPedido",PedidoController.getDetallesPedido);
+            
+        //APP API
+            get("/app/getProductos", ProductoController.appgetProductos);
+            get("/app/login", UsuarioController.appgetLogin);
     }
 }
