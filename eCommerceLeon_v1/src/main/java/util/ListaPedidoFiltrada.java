@@ -10,8 +10,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
+ * @author Dario
  * @author Luciano
+ * @author Gaston
  */
 public class ListaPedidoFiltrada implements Iterable<Pedido> {
     private final List<Pedido> list;
@@ -20,7 +21,16 @@ public class ListaPedidoFiltrada implements Iterable<Pedido> {
         this.list = list;
         this.filter = filter;
     }
+    
+    public boolean isEmpty(){
+        for(Pedido p : list)
+            if (p.getEstado() != null && p.getEstado().equals(filter))
+                return false;
+        return true;
+    }
 
+    
+    
     @Override
     public Iterator<Pedido> iterator() {
         return new Iterator<Pedido>() {

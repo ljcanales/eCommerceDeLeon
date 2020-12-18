@@ -48,7 +48,7 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="far fa-user-circle"></i> 
+                    <i class="fas fa-user"></i>
                     $username
                 </a>
                 <div class="dropdown-menu dropdown-menu-right user-options" aria-labelledby="userMenu">
@@ -57,7 +57,7 @@
                         Salir 
                     </a>
                     <a class="dropdown-item" href="/getPedidos">
-                        <i class="far fa-calendar-alt"></i> 
+                        <i class="fas fa-list-ul"></i> 
                         Mis Pedidos
                     </a>
                 </div>
