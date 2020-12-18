@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="userStyle.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
 </head>
 <body>
@@ -24,6 +24,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-stream"></i> 
                     Categorias
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -39,22 +40,32 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <!--li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-in-alt"></i> 
+                    Login 
+                </a>
             </li-->
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  $username
+                    <i class="far fa-user-circle"></i> 
+                    $username
                 </a>
                 <div class="dropdown-menu dropdown-menu-right user-options" aria-labelledby="userMenu">
-                  <a class="dropdown-item" href="/logout">Salir</a>
-                  <a class="dropdown-item" href="/getPedidos">Mis Pedidos</a>
+                    <a class="dropdown-item" href="/logout">
+                        <i class="fas fa-sign-out-alt"></i> 
+                        Salir 
+                    </a>
+                    <a class="dropdown-item" href="/getPedidos">
+                        <i class="far fa-calendar-alt"></i> 
+                        Mis Pedidos
+                    </a>
                 </div>
               </li>
  
             <li class="nav-item dropdown cart">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <i class="fas fa-shopping-cart"></i>
                     Carrito
                 </a>
                 <div id="micarrito" class="dropdown-menu dropdown-menu-right cart-menu">
@@ -63,7 +74,7 @@
 
                     <div class="row total-header-section carrito">
                         <div class="col-lg-6 col-sm-6 col-6">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">0</span>
+                            <i class="fas fa-shopping-cart"></i> <span class="badge badge-pill badge-danger">0</span>
                         </div>
                         <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
                             <p>Total: <span class="text-info">$0</span></p>

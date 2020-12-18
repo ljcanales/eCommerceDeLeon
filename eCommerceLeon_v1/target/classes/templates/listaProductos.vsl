@@ -16,7 +16,7 @@
                         <div class="col-7"> 
                             <button type="button" onClick="agregarCarrito($p.getId_producto(),this)" class="btn btn-success mt-auto" style="width: 100%;">
                                 Añadir
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
                     </div>

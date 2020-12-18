@@ -1,21 +1,26 @@
 <div class="my-3 mx-auto col-sm-12 col-lg-10">
     <div class="row justify-content-between">
-        <div class="col-3">
+        <div class="col">
+            <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos' ">
+                Todos
+            </button>
+        </div>
+        <div class="col">
             <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=guardado' ">
                 Guardados
             </button>
         </div>
-        <div class="col-3">
+        <div class="col">
             <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=entregado' ">
                 Entregados
             </button>
         </div>
-        <div class="col-3">
+        <div class="col">
             <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=en espera' ">
                 En Espera
             </button>
         </div>
-        <div class="col-3">
+        <div class="col">
             <button type="button" class="btn btn-dark wide-btn" onclick="window.location.href = 'getPedidos?filtro=en preparacion' ">
                 En Preparacion
             </button>
@@ -25,46 +30,60 @@
 
 
 <div class="my-3 mx-auto col-sm-12 col-lg-10" style="min-height: 66vh">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Num Pedido</th>
-                <th scope="col">Fecha Pedido</th>
-                <th scope="col">Fecha Entrega</th>
-                <th scope="col">Total</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Ver Detalle</th>
-            </tr>
-        </thead>
 
-      <tbody>
+    #if( $pedidos.size() > 0 )
 
-        #foreach( $p in $pedidos) 
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Num Pedido</th>
+                    <th scope="col">Fecha Pedido</th>
+                    <th scope="col">Fecha Entrega</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Ver Detalle</th>
+                </tr>
+            </thead>
 
-            <tr>
-                <th scope="row">$!{p.getId_pedido()}</th>
-                <td>  $!{p.getFecha_pedido()}</td>
-                <td>  $!{p.getFecha_envio()}</td>
-                <td>$ $!{p.getTotal()}</td>
-                <td>  $!{p.getEstado()}</td>
-                <td>
-                    <a class="verDet" href="/getDetallesPedido?id_pedido=${p.getId_pedido()}"> 
-                        <i class="fa fa-info-circle" aria-hidden="true"></i>
-                    </a>
-                </td>
-            </tr>
+          <tbody>
 
-        #end
+            #foreach( $p in $pedidos) 
 
-      </tbody>
+                <tr>
+                    <th scope="row">$!{p.getId_pedido()}</th>
+                    <td>  $!{p.getFecha_pedido()}</td>
+                    <td>  $!{p.getFecha_envio()}</td>
+                    <td>$ $!{p.getTotal()}</td>
+                    <td>  $!{p.getEstado()}</td>
+                    <td>
+                        <a class="verDet" href="/getDetallesPedido?id_pedido=${p.getId_pedido()}"> 
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </td>
+                </tr>
 
-    </table>
+            #end
 
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">No se hallaron pedidos!</h4>
-        <p>Lo sentimos pero no encontramos pedidos en esta busqueda.</p>
-        <p>Compruebe que el filtro de pedidos aplicado sea el correcto.</p>
-        <hr>
-        <p class="mb-0">Le sugerimos que lo intente con otro filtro.</p>
-    </div>
+          </tbody>
+
+        </table>
+
+    #else
+
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">No se hallaron pedidos!</h4>
+            <p>Lo sentimos pero no encontramos pedidos en esta busqueda.</p>
+            <p>Compruebe que el filtro de pedidos aplicado sea el correcto.</p>
+            <hr>
+            <p class="mb-0">Le sugerimos que lo intente con otro filtro.</p>
+        </div>
+
+    #end
+   
+</div>
+
+<div class="float-button">
+    <button type="button" class="btn btn-dark float-right" onclick="window.location.href = 'getProductos' ">
+        Volver
+    </button>
 </div>
