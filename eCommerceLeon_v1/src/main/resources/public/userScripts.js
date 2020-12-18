@@ -93,3 +93,10 @@ function comprar(){
     });
     update_cart();
 }
+
+//function filtrarPor(filtro){ 
+//    var url = "http://localhost:4567/getPedidos?filtro=" + filtro;
+//    window.location.href = url;
+//    alert(url);
+//    window.location.replace(url);
+//}
