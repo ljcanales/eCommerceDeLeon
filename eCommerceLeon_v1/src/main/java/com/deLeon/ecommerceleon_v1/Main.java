@@ -6,6 +6,10 @@
 package com.deLeon.ecommerceleon_v1;
 
 import com.deLeon.ecommerceleon_v1.Controller.*;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import org.codehaus.jackson.map.ObjectMapper;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
@@ -16,7 +20,7 @@ import static spark.Spark.staticFiles;
  * @author Gaston
  */
 public class Main {
-    public static void main(String[] args) { 
+    public static void main(String[] args) throws IOException { 
 
         staticFiles.location("/public");
         
@@ -55,5 +59,6 @@ public class Main {
         //APP API
             get("/app/getProductos", ProductoController.appgetProductos);
             get("/app/login", UsuarioController.appgetLogin);
+            
     }
 }

@@ -19,6 +19,7 @@ import spark.template.velocity.VelocityTemplateEngine;
 import com.deLeon.ecommerceleon_v1.Model.Usuario;
 import com.deLeon.ecommerceleon_v1.DataAccessObject.UsuarioDAO;
 import com.deLeon.ecommerceleon_v1.DataAccessObject.CarritoDAO; //para obtener id carrito
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * @author Dario
@@ -81,7 +82,6 @@ public class UsuarioController {
     //APP
     public static Route 
         appgetLogin = (Request req, Response res) -> {
-     
             HashMap model = new HashMap();
             
             if(req.queryParams("pass")!=null && req.queryParams("username")!=null)
@@ -95,27 +95,26 @@ public class UsuarioController {
                 List<Usuario> user = uDAO.verificarPersona(u);
                 
                 if(user.size() > 0){
-                    //CREAR SEASION/COOKIE
+                    
                     Usuario usuarioLogeado = user.get(0);
                     CarritoDAO cDAO = new CarritoDAO();
                     
-                    req.session(true);                      // Crear y retornar la sesion
-                    req.session().attribute("user_id", usuarioLogeado.getId_usuario() );       
-                    req.session().attribute("usertype", usuarioLogeado.getTipo() );                    
-                    req.session().attribute("username", usuarioLogeado.getNombre() ); 
-                    req.session().attribute("cart_id", cDAO.getCarritoID(usuarioLogeado.getId_usuario()) ); 
+                    //creo Map de retorno
+                    ObjectMapper mapper = new ObjectMapper();
+                    Map<String,Object> dataAnswer = new HashMap<>();
                     
-                    if(usuarioLogeado.getTipo() == 1)
-                        res.redirect("/getProductos");
-                    if(usuarioLogeado.getTipo() == 99) 
-                        res.redirect("/admin");
+                    dataAnswer.put("user_id", usuarioLogeado.getId_usuario());
+                    dataAnswer.put("usertype", usuarioLogeado.getTipo() );
+                    dataAnswer.put("username", usuarioLogeado.getNombre() );
+                    dataAnswer.put("cart_id", cDAO.getCarritoID(usuarioLogeado.getId_usuario()) );
+                    
+                    System.out.println(usuarioLogeado.getNombre());
+                    
+                    return mapper.writeValueAsString(dataAnswer);
                 }else{
-                    model.put("request",req);
-                    model.put("error", "La contraseña o el email es incorrecto.");
+                    return null;
                 }
                 
-            }else{
-                model.put("email","");
             }
             
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/appLogin.vsl"));
