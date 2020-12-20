@@ -59,6 +59,7 @@ public class Main {
         //APP API
             get("/app/getProductos", ProductoController.appgetProductos);
             get("/app/login", UsuarioController.appgetLogin);
+            get("/app/getPedidos",PedidoController.appgetPedidos);
             
     }
 }

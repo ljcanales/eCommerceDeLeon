@@ -57,4 +57,22 @@ public class PedidoController {
             
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/userLayout.vsl"));
         };
+    
+    // APP
+    public static Route 
+        appgetPedidos = (Request request, Response res) -> {
+            PedidoDAO pDAO = new PedidoDAO();
+            List <Pedido> pedidos = pDAO.getPedidos(Integer.parseInt(request.queryParams("user_id")));
+            HashMap model = new HashMap();
+            
+            if(request.queryParams("filtro") != null){
+                ListaPedidoFiltrada filtrado = new ListaPedidoFiltrada(pedidos, request.queryParams("filtro"));
+                model.put("pedidos", filtrado);
+            } else {
+                model.put("pedidos", pedidos);
+            }
+            
+            
+            return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/applistaPedidos.vsl")); 
+        };
 }

@@ -11,13 +11,12 @@ function onDeviceReady() {
 }
 
 $(document).ready(function () {
+  // VERIFICA SI ESTA INICIADA LA SESION
   if(window.localStorage.getItem("username") == null){
-    $("#btniniciar").show();
-    $("#btncerrar").hide();
+    btnNoLogueado();
     window.localStorage.clear();
   } else {
-    $("#btniniciar").hide();
-    $("#btncerrar").show();
+    btnLogueado();
   }
   
 });
@@ -83,8 +82,7 @@ function inicioSesion() {
             window.localStorage.setItem("cart_id", jsonAnswer["cart_id"]);
             
             $("#main-panel").html("<p class='display-3 my-3'> Has iniciado sesion como <b>"+window.localStorage.getItem("username")+"</b></p>");
-            $("#btniniciar").hide();
-            $("#btncerrar").show();
+            btnLogueado();
           },
           error: function () {
             // USUARIO NO EXISTE
@@ -99,8 +97,31 @@ function inicioSesion() {
   
 }
 function cerrarSesion() {
-  $("#btniniciar").show();
-  $("#btncerrar").hide();
+  btnNoLogueado();
   window.localStorage.clear();
   closeNav();
+}
+
+function mostrarPedidos() {
+  $.ajax({
+    type: "get",
+    url: appServer + "getPedidos?user_id=" + window.localStorage.getItem("user_id"),
+    success: function (response) {
+      $("#main-panel").html(response);
+      closeNav();
+    }
+  });
+}
+
+// CONTROL botones LOGUEADO
+function btnLogueado() {
+  $("#btniniciar").hide();
+  $("#btncerrar").show();
+  $("#btnpedidos").show();
+}
+
+function btnNoLogueado() {
+  $("#btniniciar").show();
+  $("#btncerrar").hide();
+  $("#btnpedidos").hide();
 }
