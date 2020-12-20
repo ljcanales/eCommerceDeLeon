@@ -27,13 +27,9 @@ public class PedidoController {
             PedidoDAO pDAO = new PedidoDAO();
             List <Pedido> pedidos = pDAO.getPedidos(request.session().attribute("user_id"));
             HashMap model = new HashMap();
-            
-            if(request.queryParams("filtro") != null){
-                ListaPedidoFiltrada filtrado = new ListaPedidoFiltrada(pedidos, request.queryParams("filtro"));
-                model.put("pedidos", filtrado);
-            } else {
-                model.put("pedidos", pedidos);
-            }
+
+            ListaPedidoFiltrada listapedidos = new ListaPedidoFiltrada(pedidos, request.queryParams("filtro"));
+            model.put("pedidos", listapedidos);
             
             model.put("userid", request.session().attribute("user_id"));
             model.put("Template", "templates/listaPedidos.vsl");

@@ -23,26 +23,33 @@ public class ListaPedidoFiltrada implements Iterable<Pedido> {
     }
     
     public boolean isEmpty(){
-        for(Pedido p : list)
-            if (p.getEstado() != null && p.getEstado().equals(filter))
-                return false;
-        return true;
+        if(filter == null)
+            return list.isEmpty();
+        else{
+            for(Pedido p : list)
+                if (p.getEstado() != null && p.getEstado().equals(filter))
+                    return false;
+            return true;
+        }
     }
 
-    
-    
     @Override
     public Iterator<Pedido> iterator() {
         return new Iterator<Pedido>() {
             private int pos;
+            
             @Override
             public boolean hasNext() {
-                while(pos < list.size()){
-                    if (list.get(pos).getEstado() != null && list.get(pos).getEstado().equals(filter))
-                        return true;
-                    pos++;
+                if(filter == null)
+                    return pos < list.size();
+                else{
+                    while(pos < list.size()){
+                        if (list.get(pos).getEstado() != null && list.get(pos).getEstado().equals(filter))
+                            return true;
+                        pos++;
+                    }
+                    return false;
                 }
-                return false;
             }
 
             @Override

@@ -27,6 +27,17 @@ i{
 }
   
 /*START CART CONFIG*/
+.cart-btn:hover {
+  transform: scale(1.5); 
+}
+.cart-icon{          
+    color: #26A846;
+}
+.cart-icon-trash{
+    padding-left: 10px !important;
+    color: red;
+}
+
 .cart{
     float:right;
     padding-right: 30px;

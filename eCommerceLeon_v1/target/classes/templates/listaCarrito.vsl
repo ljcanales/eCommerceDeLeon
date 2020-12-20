@@ -30,7 +30,7 @@
                                 </div>
 
                                 <!-- ALTERNATIVA CON INPUT -->
-                                <div class="col-7">
+                                <!--div class="col-7">
                                     <div class="input-group input-group-sm mb-3">
                                         <div class="input-group-prepend">
                                             <button type="button" onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, true)" class="btn btn-success">
@@ -46,26 +46,27 @@
                                             </button>
                                         </div> 
                                     </div>
-                                </div>
+                                </div-->
 
                                 <!-- ALTERNATIVA SIN INPUT -->
-                                <!--div class="col-7">
+                                <div class="col-7">
 
                                     <a onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, true)">
-                                        <i class="fas fa-plus-circle"></i>
+                                        <i class="fas fa-plus-circle cart-btn cart-icon"></i>
                                     </a>
                                      
                                     <span class="badge badge-pill badge-success" id="span-cant"> ${dc.getCant()} </span>
 
                                     <a onClick="event.stopPropagation(); updateCant(${dc.getId_producto()}, false)">
-                                        <i class="fas fa-minus-circle"></i>
+                                        <i class="fas fa-minus-circle cart-btn cart-icon"></i>
                                     </a>
 
-                                    <a class="delProd" onclick="event.stopPropagation(); deleteProd( $dc.getId_producto() )">
-                                        <i class="far fa-trash-alt"></i>
+                                    <a onclick="event.stopPropagation(); deleteProd( $dc.getId_producto() )">
+                                        <i class="far fa-trash-alt cart-btn cart-icon-trash"></i>
                                     </a>
 
-                                </div-->
+                                </div>
+
                             </div>
                   
                     </div>
