@@ -26,9 +26,8 @@ public class ListaPedidoFiltrada implements Iterable<Pedido> {
         if(filter == null)
             return list.isEmpty();
         else{
-            for(Pedido p : list)
-                if (p.getEstado() != null && p.getEstado().equals(filter))
-                    return false;
+            for(Pedido p : this)
+                return false;
             return true;
         }
     }
