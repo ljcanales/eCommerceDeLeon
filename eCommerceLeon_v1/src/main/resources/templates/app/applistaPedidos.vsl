@@ -2,7 +2,7 @@
 
     #if( ! $pedidos.isEmpty() )
     <div class="table-responsive-sm">
-        <table class="table">
+        <table class="table table-sm tabla-pedidos">
             <thead class="thead-light">
                 <tr>
                     <th scope="col">Num Pedido</th>

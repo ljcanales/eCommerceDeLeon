@@ -1,4 +1,7 @@
 /* Add a black background color to the top navigation */
+.tabla-pedidos{
+  font-size: 11px !important;
+}
 .topnav {
     background-color: #4CAF50;
     overflow: hidden;

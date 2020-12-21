@@ -65,7 +65,6 @@ public class UsuarioController {
             }else{
                 model.put("email","");
             }
-            
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/login.vsl")); 
         }; 
     
@@ -107,17 +106,12 @@ public class UsuarioController {
                     dataAnswer.put("usertype", usuarioLogeado.getTipo() );
                     dataAnswer.put("username", usuarioLogeado.getNombre() );
                     dataAnswer.put("cart_id", cDAO.getCarritoID(usuarioLogeado.getId_usuario()) );
-                    
-                    System.out.println(usuarioLogeado.getNombre());
-                    
+
                     return mapper.writeValueAsString(dataAnswer);
                 }else{
                     return null;
                 }
-                
             }
-            
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/appLogin.vsl"));
-        }; 
-    
+        };  
 }
