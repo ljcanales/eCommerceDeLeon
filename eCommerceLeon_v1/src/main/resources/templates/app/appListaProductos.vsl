@@ -1,29 +1,25 @@
-<div class="row">
-    <div class="col-12 no-gutters mx-auto justify-content-center" style="display: flex; justify-content: flex-start; width: 100%; flex-wrap: wrap; margin: 0% 0;">   
-
+    <div class="row justify-content-center row-cols-sm-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
         #foreach( ${p} in ${productos})
+            <div class="col mt-4">
+                <div class="card">
+                    <img  class="card-img-top" src="${p.getId_producto()}.png" alt="img producto">
+                    <div class="card-body">
+                        <h5 class="card-title"> ${p.getNombre()} </h5>
+                        <h6 class="card-text">$ ${p.getPrecio()} </h6>
+                        <div class="row d-flex">
+                            <div class="col-12 my-2"> 
+                                <input type="number" class="form-control" name="cant${p.getId_producto()}" min="1" max="$p.getStock()" value="1" style="width: 100%;">
+                            </div>
 
-            <div class="card text-center col-5 mx-2  my-2" style="width: 18rem;">
-                <img src="${p.getId_producto()}.png" class="card-img-top" alt="img producto" style="height: 40%;">
-                <div class="card-body">
-                    <h5 class="card-title"> ${p.getNombre()} </h5>
-                    <h6 class="card-text">$ ${p.getPrecio()} </h6>
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-12 my-2"> 
-                            <input type="number" class="form-control" name="cant${p.getId_producto()}" min="1" max="$p.getStock()" value="1" style="width: 100%;">
-                        </div>
-
-                        <div class="col-12 my-2"> 
-                            <button type="button" onClick="agregarCarrito($p.getId_producto(),this)" class="btn btn-success mt-auto" style="width: 100%;">
-                                Añadir
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
+                            <div class="col-12 my-2"> 
+                                <button type="button" onClick="agregarCarrito($p.getId_producto(),this)" class="btn btn-success mt-auto" style="width: 100%;">
+                                    Añadir
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-        #end
-
-    </div>
+        #end 
 </div>

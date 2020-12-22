@@ -1,9 +1,9 @@
-<div class="my-3 mx-auto col-sm-12 col-lg-10" style="min-height: 66vh">
+<div class="row text-center padding">
 
     #if( ! $pedidos.isEmpty() )
-
-        <table class="table">
-            <thead class="thead-dark">
+    <div class="table-responsive-sm">
+        <table class="table table-sm tabla-pedidos">
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">Num Pedido</th>
                     <th scope="col">Fecha Pedido</th>
@@ -36,7 +36,7 @@
           </tbody>
 
         </table>
-
+    </div>
     #else
 
         <div class="alert alert-success" role="alert">
