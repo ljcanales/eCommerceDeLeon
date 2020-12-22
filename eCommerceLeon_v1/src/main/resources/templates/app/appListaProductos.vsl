@@ -1,17 +1,19 @@
-    <div class="row justify-content-center row-cols-sm-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
+    <div class="row d-flex justify-content-between">
         #foreach( ${p} in ${productos})
-            <div class="col mt-4">
+            <div class="col-6 mt-4">
                 <div class="card">
                     <img  class="card-img-top" src="${p.getId_producto()}.png" alt="img producto">
                     <div class="card-body">
-                        <h5 class="card-title"> ${p.getNombre()} </h5>
-                        <h6 class="card-text">$ ${p.getPrecio()} </h6>
+                        <div class="card-product-text">
+                            <h5 class="card-title"> ${p.getNombre()} </h5>
+                            <h6 class="card-text">$ ${p.getPrecio()} </h6>
+                        </div>
                         <div class="row d-flex">
-                            <div class="col-12 my-2"> 
-                                <input type="number" class="form-control" name="cant${p.getId_producto()}" min="1" max="$p.getStock()" value="1" style="width: 100%;">
+                            <div class="col-6"> 
+                                <input type="number" class="form-control inpt" name="cant${p.getId_producto()}" min="1" max="$p.getStock()" value="1" style="width: 100%;">
                             </div>
 
-                            <div class="col-12 my-2"> 
+                            <div class="col-6"> 
                                 <button type="button" onClick="agregarCarrito($p.getId_producto(),this)" class="btn btn-success mt-auto" style="width: 100%;">
                                     Añadir
                                     <i class="fas fa-shopping-cart"></i>

@@ -1,3 +1,16 @@
+/* PRODUCTOS */
+.card-product-text h5, h6{
+  font-size: 12px;
+}
+.inpt, .btn{
+  font-size: 10px;
+}
+.card-product-text{
+  height: 80px;
+}
+
+
+
 /* Add a black background color to the top navigation */
 .tabla-pedidos{
   font-size: 11px !important;
