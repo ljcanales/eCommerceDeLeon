@@ -71,4 +71,18 @@ public class PedidoController {
             
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/applistaPedidos.vsl")); 
         };
+    
+    public static Route 
+        appgetDetallesPedido = (Request request, Response res) -> {
+            System.out.println(request.queryParams("id_pedido"));
+            DetallePedidoDAO dpDAO = new DetallePedidoDAO();
+            int idPedido = Integer.parseInt(request.queryParams("id_pedido"));
+            List<Map<String,Object>> dp = dpDAO.getDetallesPedido(idPedido);
+            
+            HashMap model = new HashMap(); 
+            model.put("detalles", dp);
+            model.put("idPedido", idPedido);
+            
+            return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/appListaDetallesPedidos.vsl"));
+        };
 }

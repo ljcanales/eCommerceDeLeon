@@ -1,4 +1,4 @@
-var ipAddress = "192.168.1.7";
+var ipAddress = "192.168.1.41";
 var appServer = "http://" + ipAddress + ":4567/app/";
 var server = "http://" + ipAddress + ":4567/";
 
@@ -46,8 +46,8 @@ function mostrarCatalogo() {
       $("#main-panel").find("img").each(function () { 
         var newSrc = server + "img/" + $(this).attr("src");
         $(this).attr("src", newSrc);
-        closeNav();
       });
+      closeNav();
     },
     error: function () {
       console.log("fail");
@@ -102,13 +102,44 @@ function cerrarSesion() {
   closeNav();
 }
 
+// MIS PEDIDOS
 function mostrarPedidos() {
   $.ajax({
     type: "get",
     url: appServer + "getPedidos?user_id=" + window.localStorage.getItem("user_id"),
     success: function (response) {
       $("#main-panel").html(response);
+      // EVENTO PARA MOSTRAR DETALLES DE PEDIDO
+      $("#main-panel").find("tbody tr").on("click", function verDetallePedido() {
+        $.ajax({
+          type: "get",
+          url: appServer + "getDetallesPedidos",
+          data: "id_pedido=" + $(this).find(".id_pedido").text(),
+          success: function (response) {
+            $("#main-panel").html(response);
+          }
+        });
+      });
       closeNav();
+    }
+  });
+}
+
+// VER CARRITO
+function verCarrito() {
+  if(window.localStorage.getItem("cart_id") == null)
+    return;
+  
+  $.ajax({
+    type: "get",
+    url: appServer + "verCarrito",
+    data: "cart_id=" + window.localStorage.getItem("cart_id"),
+    success: function (response) {
+      $("#main-panel").html(response);
+      $("#main-panel").find("img").each(function () { 
+        var newSrc = server + "img/" + $(this).attr("src");
+        $(this).attr("src", newSrc);
+      });
     }
   });
 }

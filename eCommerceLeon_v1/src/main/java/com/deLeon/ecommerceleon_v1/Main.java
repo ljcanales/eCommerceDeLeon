@@ -60,6 +60,8 @@ public class Main {
             get("/app/getProductos", ProductoController.appgetProductos);
             get("/app/login", UsuarioController.appgetLogin);
             get("/app/getPedidos",PedidoController.appgetPedidos);
+            get("/app/getDetallesPedidos",PedidoController.appgetDetallesPedido);
+            get("/app/verCarrito",CarritoController.appverCarrito);
             
     }
 }

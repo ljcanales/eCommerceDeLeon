@@ -1,0 +1,35 @@
+<div class="my-3 mx-auto table-responsive">
+        <p class="p-3">DETALLES DEL PEDIDO $idPedido</p>
+        <table class="table">
+            <colgroup>
+                <col span="1" style="width: 30%;">
+                <col span="1" style="width: 7%;">
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 28%;">
+            </colgroup>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cant.</th>
+                    <th scope="col">Precio Unit</th>
+                    <th scope="col">Sub Total</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                #foreach( $d in $detalles) 
+                    #set ($st = $d.get("cantidad") * $d.get("precio"))
+                    <tr>
+                        <th scope="row" lass="p-2">$d.get("nombre")</th>
+                        <td lass="p-2">  $d.get("cantidad")</td>
+                        <td lass="p-2"> $ $d.get("precio")</td>
+                        <td lass="p-2">$ $st</td>
+                    </tr>
+
+                #end
+
+            </tbody>
+    </table>
+    <button type="button" class="btn btn-dark" onclick="mostrarPedidos();">Volver a Mis Pedidos</button>
+</div>

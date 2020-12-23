@@ -18,15 +18,15 @@
 
             #foreach( $p in $pedidos) 
 
-                <tr>
-                    <th scope="row">$!{p.getId_pedido()}</th>
-                    <td>  $!{p.getFecha_pedido()}</td>
-                    <td>  $!{p.getFecha_envio()}</td>
-                    <td>$ $!{p.getTotal()}</td>
-                    <td>  $!{p.getEstado()}</td>
+                <tr style="height: 40px;">
+                    <th class="id_pedido p-2" scope="row">$!{p.getId_pedido()}</th>
+                    <td class="p-2">  $!{p.getFecha_pedido()}</td>
+                    <td class="p-2">  $!{p.getFecha_envio()}</td>
+                    <td class="p-2">$ $!{p.getTotal()}</td>
+                    <td class="p-2">  $!{p.getEstado()}</td>
                     <td>
-                        <a class="verDet" href="/getDetallesPedido?id_pedido=${p.getId_pedido()}"> 
-                            <i class="fas fa-info-circle"></i>
+                        <a class="verDet btn btn-success" href="#"> 
+                            +
                         </a>
                     </td>
                 </tr>

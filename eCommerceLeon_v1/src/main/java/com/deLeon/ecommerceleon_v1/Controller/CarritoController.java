@@ -173,5 +173,27 @@ public class CarritoController {
             return ""; 
         }; //FIN comprarCarrito()
     
+    // APP
+    public static Route 
+        appverCarrito = (Request request, Response response) -> {
+            CarritoDAO cDAO = new CarritoDAO();
+            DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
+
+            int idcarrito = Integer.parseInt(request.queryParams("cart_id"));
+
+            List<DetalleCarrito> carrito = dcDAO.getDetallesCarrito(idcarrito);
+
+            double total = 0;
+            for(DetalleCarrito d : carrito){
+                total+= d.getCant() * d.getPrecio();
+            }
+
+            HashMap model = new HashMap();
+            model.put("id_carrito", idcarrito);
+            model.put("detalles_carrito", carrito);
+            model.put("total", total);
+            return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/appListaCarrito.vsl")); 
+        };
+    
 }
 
