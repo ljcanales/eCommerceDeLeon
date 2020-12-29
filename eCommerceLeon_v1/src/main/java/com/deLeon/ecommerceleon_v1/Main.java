@@ -62,6 +62,7 @@ public class Main {
             get("/app/getPedidos",PedidoController.appgetPedidos);
             get("/app/getDetallesPedidos",PedidoController.appgetDetallesPedido);
             get("/app/verCarrito",CarritoController.appverCarrito);
+            post("/app/addProducto", CarritoController.appaddProducto);
             
     }
 }

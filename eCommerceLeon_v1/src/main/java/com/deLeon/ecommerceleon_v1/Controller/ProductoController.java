@@ -38,6 +38,7 @@ public class ProductoController {
         return pDAO.existsId(id);
     };
     
+    //APP
     public static Route appgetProductos = (Request request, Response response) -> {
         ProductoDAO pDAO = new ProductoDAO();
         List<Producto> res = pDAO.getAllProductos();

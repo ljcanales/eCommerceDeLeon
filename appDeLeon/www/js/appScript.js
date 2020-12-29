@@ -1,4 +1,4 @@
-var ipAddress = "192.168.1.7";
+var ipAddress = "192.168.1.41";
 var appServer = "http://" + ipAddress + ":4567/app/";
 var server = "http://" + ipAddress + ":4567/";
 
@@ -55,6 +55,28 @@ function mostrarCatalogo() {
   });
 }
 
+// agregar a carrito
+function agregarCarrito(id_producto, element){
+  if(window.localStorage.getItem("username") == null){ // CONTROL DE LOGUEO
+    inicioSesion();
+    closeNav();
+    return;
+  }
+
+  var cant = $(element).parent().parent().find("input").val();
+  
+  $.ajax({
+    type: 'post',
+    url: appServer + "addProducto",
+    data: "cart_id=" + window.localStorage.getItem("cart_id") + "&id_producto=" + id_producto + "&cant=" + cant,
+    success: function(ans) {
+        
+    },
+    error: function(){
+        console.log("fail");
+    }
+  });
+}
 
 //INICIO SESION
 function inicioSesion() {
@@ -141,6 +163,7 @@ function verCarrito() {
         var newSrc = server + "img/" + $(this).attr("src");
         $(this).attr("src", newSrc);
       });
+      closeNav();
     }
   });
 }

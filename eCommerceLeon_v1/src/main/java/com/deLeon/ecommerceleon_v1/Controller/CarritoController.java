@@ -194,6 +194,22 @@ public class CarritoController {
             model.put("total", total);
             return new VelocityTemplateEngine().render(new ModelAndView(model, "templates/app/appListaCarrito.vsl")); 
         };
-    
+    public static Route 
+        appaddProducto = (Request request, Response response) -> {
+            DetalleCarritoDAO dcDAO = new DetalleCarritoDAO();
+            DetalleCarrito dc = new DetalleCarrito();
+
+            int idcarrito = Integer.parseInt(request.queryParams("cart_id"));
+            int cantidad = Integer.parseInt(request.queryParams("cant"));
+            int idproducto = Integer.parseInt(request.queryParams("id_producto"));
+
+            dc.setCant(cantidad);
+            dc.setId_carrito(idcarrito);
+            dc.setId_producto(idproducto);
+
+            dcDAO.addDetalleCarrito(dc);
+
+            return "product added";
+        };//FIN addProducto()
 }
 
