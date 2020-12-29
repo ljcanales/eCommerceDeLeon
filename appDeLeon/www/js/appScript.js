@@ -81,8 +81,9 @@ function inicioSesion() {
             window.localStorage.setItem("username", jsonAnswer["username"]);
             window.localStorage.setItem("cart_id", jsonAnswer["cart_id"]);
             
-            $("#main-panel").html("<p class='display-3 my-3'> Has iniciado sesion como <b>"+window.localStorage.getItem("username")+"</b></p>");
+            $("#main-panel").html("<div class='alert alert-warning mx-1 my-3' role='alert'> Bienvenido  <b>"+window.localStorage.getItem("username")+"</b></div>");
             btnLogueado();
+            setTimeout(mostrarCatalogo, 2000);
           },
           error: function () {
             // USUARIO NO EXISTE
