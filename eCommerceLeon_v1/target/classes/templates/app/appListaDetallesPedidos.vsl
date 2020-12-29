@@ -1,6 +1,6 @@
 <div class="my-3 mx-auto table-responsive">
-        <p class="p-3">DETALLES DEL PEDIDO $idPedido</p>
-        <table class="table">
+        <p class="p-3">Pedido Numero: $idPedido</p>
+        <table class="table table-sm tabla-pedidos mx-1 my-3">
             <colgroup>
                 <col span="1" style="width: 30%;">
                 <col span="1" style="width: 7%;">
@@ -20,7 +20,7 @@
 
                 #foreach( $d in $detalles) 
                     #set ($st = $d.get("cantidad") * $d.get("precio"))
-                    <tr>
+                    <tr class="table-active">
                         <th scope="row" lass="p-2">$d.get("nombre")</th>
                         <td lass="p-2">  $d.get("cantidad")</td>
                         <td lass="p-2"> $ $d.get("precio")</td>

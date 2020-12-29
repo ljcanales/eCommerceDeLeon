@@ -1,11 +1,11 @@
-<div class="row text-center padding">
+<div class="row text-center padding mx-1 my-3">
 
     #if( ! $pedidos.isEmpty() )
     <div class="table-responsive-sm">
         <table class="table table-sm tabla-pedidos">
-            <thead class="thead-light">
+            <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Num Pedido</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Fecha Pedido</th>
                     <th scope="col">Fecha Entrega</th>
                     <th scope="col">Total</th>
@@ -18,7 +18,7 @@
 
             #foreach( $p in $pedidos) 
 
-                <tr style="height: 40px;">
+                <tr class="table-active" style="height: 40px;">
                     <th class="id_pedido p-2" scope="row">$!{p.getId_pedido()}</th>
                     <td class="p-2">  $!{p.getFecha_pedido()}</td>
                     <td class="p-2">  $!{p.getFecha_envio()}</td>

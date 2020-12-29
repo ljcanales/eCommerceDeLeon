@@ -1,4 +1,4 @@
-var ipAddress = "192.168.1.41";
+var ipAddress = "192.168.1.7";
 var appServer = "http://" + ipAddress + ":4567/app/";
 var server = "http://" + ipAddress + ":4567/";
 
